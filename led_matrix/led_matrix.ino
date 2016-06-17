@@ -6,7 +6,7 @@ int SRCLK_pin = 12;
 // RCLK (Register Clock)
 // ST_CP
 // Latch
-int RCLK_pin = A7;
+int RCLK_pin = 6;
 
 // SER (Serial)
 // DS
@@ -32,24 +32,25 @@ void setup() {
 }
 
 void writeShiftRegister(boolean registers[]) {
-  int t = 100;
+
+  unsigned int baudRate = 9600;
+  unsigned long period = long(1000000/baudRate);
+  
   digitalWrite(RCLK_pin, LOW);
+  digitalWrite(SRCLK_pin, LOW);
 
   for(int i = MAX_ROWS; i >= 0; i--) {
-    digitalWrite(SRCLK_pin, LOW);
-    //delayMicroseconds(t);
-    delay(5);
-
+    delayMicroseconds(long(period/4));
     digitalWrite(SER_pin, registers[i]);
-    //delayMicroseconds(t);
-    delay(5);
-    
+    delayMicroseconds(long(period/4));    
     digitalWrite(SRCLK_pin, HIGH);
-    //delayMicroseconds(2*t);
+    delayMicroseconds(long(period/2));
+    digitalWrite(SRCLK_pin, LOW);    
   }  
-  //delayMicroseconds(t);
+  delayMicroseconds(long(period/4));
   digitalWrite(RCLK_pin, HIGH);
-  //delayMicroseconds(t);
+  delayMicroseconds(long(period/2));
+  digitalWrite(RCLK_pin, LOW);  
 }
 
 void loop() {
@@ -61,7 +62,7 @@ void loop() {
   digitalWrite(cols[3], LOW);
   digitalWrite(cols[4], HIGH);
    
-  delay(200);
+  delay(2);
 
   digitalWrite(cols[0], LOW);
   digitalWrite(cols[1], LOW);
@@ -77,5 +78,13 @@ void loop() {
   digitalWrite(cols[3], HIGH);
   digitalWrite(cols[4], HIGH);
   
-  delay(200);
+  delay(2);
+
+  digitalWrite(cols[0], LOW);
+  digitalWrite(cols[1], LOW);
+  digitalWrite(cols[2], LOW);
+  digitalWrite(cols[3], LOW);
+  digitalWrite(cols[4], LOW);
+
+  delay(2);
 }
