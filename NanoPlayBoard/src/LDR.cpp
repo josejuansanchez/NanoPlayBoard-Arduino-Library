@@ -13,12 +13,6 @@ LDR::LDR()
   pinMode(_pin, OUTPUT);
 }
 
-LDR::LDR(int pin)
-{
-  _pin = pin;
-  pinMode(pin, OUTPUT);
-}
-
 int LDR::read()
 {
   return analogRead(_pin);

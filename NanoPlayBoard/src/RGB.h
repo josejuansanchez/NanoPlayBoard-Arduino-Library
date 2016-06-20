@@ -12,7 +12,6 @@ class RGB
 {
   public:
     RGB();
-    RGB(int pinR, int pinG, int pinB);
     void write(int r, int g, int b);
 
   private:

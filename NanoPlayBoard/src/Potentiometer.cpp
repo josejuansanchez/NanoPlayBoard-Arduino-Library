@@ -13,12 +13,6 @@ Potentiometer::Potentiometer()
   pinMode(_pin, OUTPUT);
 }
 
-Potentiometer::Potentiometer(int pin)
-{
-  _pin = pin;
-  pinMode(pin, OUTPUT);
-}
-
 int Potentiometer::read()
 {
   return analogRead(_pin);

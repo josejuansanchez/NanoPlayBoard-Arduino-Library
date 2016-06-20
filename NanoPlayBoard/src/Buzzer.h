@@ -12,7 +12,6 @@ class Buzzer
 {
   public:
     Buzzer();
-    Buzzer(int pin);
     void playTone(int frequency);
 
   private:

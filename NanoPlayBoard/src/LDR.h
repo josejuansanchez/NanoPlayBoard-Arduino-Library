@@ -12,7 +12,6 @@ class LDR
 {
   public:
     LDR();
-    LDR(int pin);
     int read();
 
   private:

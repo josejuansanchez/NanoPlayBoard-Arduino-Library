@@ -13,12 +13,6 @@ Buzzer::Buzzer()
   pinMode(_pin, OUTPUT);
 }
 
-Buzzer::Buzzer(int pin)
-{
-  _pin = pin;
-  pinMode(_pin, OUTPUT);
-}
-
 void Buzzer::playTone(int frequency)
 {
   tone(_pin, frequency);

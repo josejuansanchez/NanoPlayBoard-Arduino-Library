@@ -18,17 +18,6 @@ RGB::RGB()
   pinMode(_pinB, OUTPUT);  
 }
 
-RGB::RGB(int pinR, int pinG, int pinB)
-{
-  _pinR = pinR;
-  _pinG = pinG;
-  _pinB = pinB;    
-  
-  pinMode(_pinR, OUTPUT);
-  pinMode(_pinG, OUTPUT);
-  pinMode(_pinB, OUTPUT);  
-}
-
 void RGB::write(int r, int g, int b)
 {
   analogWrite(_pinR, r);

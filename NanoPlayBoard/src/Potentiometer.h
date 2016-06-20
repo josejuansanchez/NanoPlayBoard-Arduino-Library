@@ -12,7 +12,6 @@ class Potentiometer
 {
   public:
     Potentiometer();
-    Potentiometer(int pin);
     int read();
 
   private:
