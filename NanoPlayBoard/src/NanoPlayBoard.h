@@ -11,6 +11,7 @@
 #include "RGB.h"  
 #include "LDR.h"
 #include "Buzzer.h"
+#include "LedMatrix.h"
 
 class NanoPlayBoard
 {
@@ -20,9 +21,7 @@ class NanoPlayBoard
     RGB rgb;
     LDR ldr;
     Buzzer buzzer;
-
-  private:
-
+    LedMatrix ledmatrix;
 };
 
 #endif

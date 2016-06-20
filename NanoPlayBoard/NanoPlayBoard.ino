@@ -7,7 +7,8 @@ void setup() {
 }
 
 void loop() {
-  testPotentiometer();
+  board.ledmatrix.printMessage("H o l a  e s t o  e s  u n a  p r u e b a");
+  delay(1000);
 }
 
 void testPotentiometer() {
@@ -34,5 +35,9 @@ void testLDR() {
 void testBuzzer() {
   board.buzzer.playTone(440);
   delay(100);
+}
+
+void testLedMatrix() {
+    board.ledmatrix.print('A');
 }
 
