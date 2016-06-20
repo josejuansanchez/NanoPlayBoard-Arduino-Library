@@ -114,12 +114,14 @@ class LedMatrix
         LedMatrix();
         void clear();
         void print(char symbol);
-        void printPattern(byte pattern[5]);
-        void printMessage(char message[]);
+        void print(byte pattern[5]);
+        void print(char message[]);
+        void setScrollSpeed(int speed);
 
     private:
         static int _columns[5];           // Pins attached to the columns of the led matrix
         Register _register = Register();  // Value that will be written in the shift register for each column
+        int _scrollSpeed;                 // Scroll speed used to display messages
 };
 
 #endif
