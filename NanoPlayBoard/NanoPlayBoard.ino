@@ -1,5 +1,8 @@
 #include "src/NanoPlayBoard.h"
 
+#include "src/MatrizLed.h"
+#include "src/Registro.h"
+
 NanoPlayBoard board;
 
 void setup() {
@@ -7,8 +10,7 @@ void setup() {
 }
 
 void loop() {
-  board.ledmatrix.printMessage("H o l a  e s t o  e s  u n a  p r u e b a");
-  delay(1000);
+  testLedMatrix_Message();
 }
 
 void testPotentiometer() {
@@ -37,7 +39,24 @@ void testBuzzer() {
   delay(100);
 }
 
-void testLedMatrix() {
+void testLedMatrix_Char() {
     board.ledmatrix.print('A');
+}
+
+void testLedMatrix_Pattern() {
+  byte pattern[5] = {
+    0b00010000,
+    0b01001000,
+    0b00001000,
+    0b01001000,
+    0b00010000
+    };
+
+  board.ledmatrix.print(pattern);  
+}
+
+void testLedMatrix_Message() {
+  board.ledmatrix.setScrollSpeed(20);
+  board.ledmatrix.print("H o l a ");
 }
 
