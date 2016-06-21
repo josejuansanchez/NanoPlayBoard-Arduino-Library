@@ -1,6 +1,0 @@
-= Registro Library for Arduino =
-
-Coming soon...
-
-== License ==
-
