@@ -2,11 +2,13 @@
 
 This library enables easy access to the sensors and actuators of the Arduino Nano PlayBoard. The Arduino Nano PlayBoard is a board designed by Antonio Morales.
 
-For more information about the board please visit us at 
-https://github.com/AntonioMR/Arduino-Nano-Play-Board
+For more information about the board please visit us at:  
 
-For more information about this library please visit us at
-https://github.com/josejuansanchez/sketches_for_arduino_playboard
+* https://github.com/AntonioMR/Arduino-Nano-Play-Board
+
+For more information about this library please visit us at:  
+
+* https://github.com/josejuansanchez/NanoPlayBoard
 
 
 == License ==
