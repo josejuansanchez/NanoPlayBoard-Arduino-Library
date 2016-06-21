@@ -1,8 +1,11 @@
 # Library for the Arduino Nano Playboard
 
-This library enables easy access to the sensors and actuators of the [Arduino Nano PlayBoard][1]. The Arduino Nano PlayBoard is a board designed by [Antonio Morales][2].
+This library enables easy access to the sensors and actuators of the [Arduino Nano PlayBoard][1]. The Arduino Nano PlayBoard is a board designed by [Antonio Morales][2] and it was designed for a introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
 
-The sensors available on the board are a light sensor and a potentiometer. The actuators available on the board are a 7x5 matrix LED, a RGB LED and a piezo buzzer.
+This board may be an **excellent educational resource** for those students who want **to learn basic electronic and programming**.
+
+The sensors available on the board are a light sensor and a potentiometer.  
+The actuators available on the board are a 7x5 matrix LED, a RGB LED and a piezo buzzer.
 
 For more information about the board please visit us at:  
 
@@ -59,13 +62,22 @@ board.rgb.write(255, 0, 0);
 ```c++
 NanoPlayBoard board;
 
+board.ledmatrix.print("H o l a  m u n d o!");
+```
+
+The library allows you to control the scroll speed that is used to display the text in the led matrix.
+
+```c++
+NanoPlayBoard board;
+
 board.ledmatrix.setScrollSpeed(10);
 board.ledmatrix.print("H o l a  m u n d o!");
 ```
 
+
 ## Credits
 
-This library has been developed by [Antonio Morales][2] and [José Juan Sánchez][3].
+This library has been developed by [Antonio Morales][2] and [José Juan Sánchez][5].
 
 ## License
 
@@ -75,5 +87,7 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 [1]: http://github.com/AntonioMR/Arduino-Nano-Play-Board
 [2]: http://twitter.com/antonio1010mr
-[3]: http://josejuansanchez.org
+[3]: http://hacklabalmeria.net
+[4]: https://goo.gl/photos/VKdNkxRcpEW4yBa47
+[5]: http://josejuansanchez.org
 [releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
