@@ -15,6 +15,8 @@ For more information about the board please visit us at:
 * Restart the Arduino IDE.
 * Now the example sketches will be available in the menu `File > Examples > NanoPlayBoard`.
 
+![examples](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/examples.png)
+
 ## Quick start
 
 ### Potentiometer
