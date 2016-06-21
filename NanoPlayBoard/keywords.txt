@@ -1,0 +1,30 @@
+#######################################
+# Syntax Coloring Map For Keyboard
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+NanoPlayBoard   KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+potentiometer   KEYWORD2
+rgb             KEYWORD2
+ldr             KEYWORD2
+buzzer          KEYWORD2
+ledmatrix       KEYWORD2
+
+read            KEYWORD2
+write           KEYWORD2
+playTone        KEYWORD2
+clear           KEYWORD2
+print           KEYWORD2
+setScrollSpeed  KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
