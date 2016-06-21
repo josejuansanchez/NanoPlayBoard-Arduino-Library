@@ -8,6 +8,9 @@ For more information about the board please visit us at:
 
 * https://github.com/AntonioMR/Arduino-Nano-Play-Board
 
+![upperside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/upperside.png)
+![underside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/underside.png)
+
 ## Installation
 
 * [Download the library][releases].
