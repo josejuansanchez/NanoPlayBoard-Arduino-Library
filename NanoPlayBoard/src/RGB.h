@@ -15,9 +15,9 @@ class RGB
     void write(int r, int g, int b);
 
   private:
-    int _pinR;
-    int _pinG;
-    int _pinB;
+    uint8_t _pinR;
+    uint8_t _pinG;
+    uint8_t _pinB;
 };
 
 #endif

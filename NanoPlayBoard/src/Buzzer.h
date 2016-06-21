@@ -12,10 +12,10 @@ class Buzzer
 {
   public:
     Buzzer();
-    void playTone(int frequency);
+    void playTone(unsigned int frequency);
 
   private:
-    int _pin;
+    uint8_t _pin;
 };
 
 #endif

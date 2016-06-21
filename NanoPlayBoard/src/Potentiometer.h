@@ -15,7 +15,7 @@ class Potentiometer
     int read();
 
   private:
-    int _pin;
+    uint8_t _pin;
 };
 
 #endif

@@ -13,7 +13,7 @@ Buzzer::Buzzer()
   pinMode(_pin, OUTPUT);
 }
 
-void Buzzer::playTone(int frequency)
+void Buzzer::playTone(unsigned int frequency)
 {
   tone(_pin, frequency);
 }

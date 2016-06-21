@@ -17,9 +17,9 @@ class Register
         void write(byte data);
 
     private:
-        unsigned int _Din;    // Pin attached to the serial pin in the shift register
-        unsigned int _ClkIn;  // Pin attached to the shift clock pin in the shift register
-        unsigned int _ClkOut; // Pin atrached to the latch clock pin in the shift register
+        uint8_t _Din;    // Pin attached to the serial pin in the shift register
+        uint8_t _ClkIn;  // Pin attached to the shift clock pin in the shift register
+        uint8_t _ClkOut; // Pin atrached to the latch clock pin in the shift register
         unsigned long _period;
         unsigned int _baudRate;
 };

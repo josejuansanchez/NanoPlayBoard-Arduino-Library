@@ -8,7 +8,7 @@
 #include "Register.h"
 #include "LedMatrix.h"
 
-int LedMatrix::_columns[5] = {2, 4, 5, 16, 17};
+uint8_t LedMatrix::_columns[5] = {2, 4, 5, 16, 17};
 
 LedMatrix::LedMatrix()
 {

@@ -119,7 +119,7 @@ class LedMatrix
         void setScrollSpeed(int speed);
 
     private:
-        static int _columns[5];           // Pins attached to the columns of the led matrix
+        static uint8_t _columns[5];       // Pins attached to the columns of the led matrix
         Register _register = Register();  // Value that will be written in the shift register for each column
         int _scrollSpeed;                 // Scroll speed used to display messages
 };
