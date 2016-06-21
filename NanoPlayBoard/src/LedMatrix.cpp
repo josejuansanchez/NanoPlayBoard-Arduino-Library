@@ -62,17 +62,17 @@ void LedMatrix::print(byte pattern[5])
 // Display the message stored in the array of chars
 void LedMatrix::print(char message[])
 {
-  byte dat[5];
+  byte pattern[5];
   for (int i = 0; i < (strlen(message)*5-4); i++){  
-    dat[0]=ascii[message[i/5]-0x20][i%5];
-    dat[1]=ascii[message[(i+1)/5]-0x20][(i+1)%5];
-    dat[2]=ascii[message[(i+2)/5]-0x20][(i+2)%5];
-    dat[3]=ascii[message[(i+3)/5]-0x20][(i+3)%5];
-    dat[4]=ascii[message[(i+4)/5]-0x20][(i+4)%5];
+    pattern[0]=ascii[message[i/5]-0x20][i%5];
+    pattern[1]=ascii[message[(i+1)/5]-0x20][(i+1)%5];
+    pattern[2]=ascii[message[(i+2)/5]-0x20][(i+2)%5];
+    pattern[3]=ascii[message[(i+3)/5]-0x20][(i+3)%5];
+    pattern[4]=ascii[message[(i+4)/5]-0x20][(i+4)%5];
 
     // Display the pattern several times
     for(int n = 0; n < _scrollSpeed; n++) {
-      print(dat);
+      print(pattern);
     }
   }
 }
