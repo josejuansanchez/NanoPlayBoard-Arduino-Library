@@ -8,6 +8,13 @@ For more information about the board please visit us at:
 
 * https://github.com/AntonioMR/Arduino-Nano-Play-Board
 
+## Installation
+
+* [Download the library][releases].
+* Go to the Arduino IDE, select `Sketch > Import Library > Add library .ZIP`
+* Restart the Arduino IDE.
+* Now the example sketches will be available in the menu `File > Examples > NanoPlayBoard`.
+
 ## Quick start
 
 ### Potentiometer
@@ -64,3 +71,4 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 [1]: http://github.com/AntonioMR/Arduino-Nano-Play-Board
 [2]: http://twitter.com/antonio1010mr
 [3]: http://josejuansanchez.org
+[releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
