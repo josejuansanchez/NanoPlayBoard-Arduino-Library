@@ -8,6 +8,13 @@ For more information about the board please visit us at:
 
 * https://github.com/AntonioMR/Arduino-Nano-Play-Board
 
+## Installation
+
+* [Download the library][releases].
+* Go to the Arduino IDE, select `Sketch > Import Library > Add library .ZIP`
+* Restart the Arduino IDE.
+* Now the example sketches will be available in the menu `File > Examples > NanoPlayBoard`.
+
 ## Quick start
 
 ### Potentiometer
@@ -55,7 +62,13 @@ board.ledmatrix.print("H o l a  m u n d o!");
 
 This library has been developed by [Antonio Morales][2] and [José Juan Sánchez][3].
 
+## License
+
+This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
 
 [1]: http://github.com/AntonioMR/Arduino-Nano-Play-Board
 [2]: http://twitter.com/antonio1010mr
 [3]: http://josejuansanchez.org
+[releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
