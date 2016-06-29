@@ -17,3 +17,8 @@ void Buzzer::playTone(unsigned int frequency)
 {
   tone(_pin, frequency);
 }
+
+void Buzzer::playTone(unsigned int frequency, unsigned long duration)
+{
+  tone(_pin, frequency, duration);
+}

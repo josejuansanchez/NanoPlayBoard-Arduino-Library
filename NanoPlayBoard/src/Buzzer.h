@@ -13,6 +13,7 @@ class Buzzer
   public:
     Buzzer();
     void playTone(unsigned int frequency);
+    void playTone(unsigned int frequency, unsigned long duration);
 
   private:
     uint8_t _pin;
