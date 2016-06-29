@@ -116,6 +116,7 @@ class LedMatrix
         void print(char symbol);
         void print(byte pattern[5]);
         void print(char message[]);
+        void print(String message);
         void setScrollSpeed(int speed);
 
     private:
