@@ -44,7 +44,8 @@ void loop() {
 //---------------------------------
 
 void loadPotentiometerSketch() {
-  int potValue = board.potentiometer.read();
+  //int potValue = board.potentiometer.read();
+  int potValue = analogRead(A1);
 
   StaticJsonBuffer<200> jsonBuffer;
   JsonObject& root = jsonBuffer.createObject();
