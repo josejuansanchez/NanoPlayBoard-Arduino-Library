@@ -7,21 +7,38 @@ void setup() {
   Serial.begin(115200);
 }
 
-void loop() {
-  if (Serial.available() <= 0) return;
+String json;
+int sketchId;
 
-  String json = Serial.readStringUntil('\n');  
+void loop() {
+  sketchId = getSketchId();
+
+  while(1) {
+    runSketch();
+    json = "";
+    int newSketchId = getSketchId();
+    if (newSketchId != -1) sketchId = newSketchId;
+  }
+}
+
+//---------------------------------
+
+int getSketchId() {
+  if (Serial.available() <= 0) return -1;
+  //String json = Serial.readStringUntil('\n');
+  json = Serial.readStringUntil('\n');
   StaticJsonBuffer<200> jsonBuffer;  
   JsonObject& root = jsonBuffer.parseObject(json);
 
   if (!root.success()) {
     Serial.println("{\"error\": \"Error parsing json message\"}");
-    return;
+    return -1;
   }
 
-  int sketchId = root["sketchId"];
+  return root["sketchId"];
+}
 
-  while(1) {
+void runSketch() {
     switch(sketchId) {
       case 0: loadPotentiometerSketch();
               break;
@@ -38,7 +55,6 @@ void loop() {
       case 4: loadLedMatrixSketch();
               break;              
     }
-  }
 }
 
 //---------------------------------
@@ -69,9 +85,8 @@ void loadLDRSketch() {
 //---------------------------------
 
 void loadRGBSketch() {
-  if (Serial.available() <= 0) return;
-  
-  String json = Serial.readStringUntil('\n');  
+  if (json.length() <= 0) return;
+
   StaticJsonBuffer<200> jsonBuffer;  
   JsonObject& root = jsonBuffer.parseObject(json);
 
@@ -90,9 +105,8 @@ void loadRGBSketch() {
 //---------------------------------
 
 void loadBuzzerSketch() {
-  if (Serial.available() <= 0) return;
+  if (json.length() <= 0) return;
 
-  String json = Serial.readStringUntil('\n');
   StaticJsonBuffer<200> jsonBuffer;  
   JsonObject& root = jsonBuffer.parseObject(json);
 
@@ -110,9 +124,8 @@ void loadBuzzerSketch() {
 //---------------------------------
 
 void loadLedMatrixSketch() {
-  if (Serial.available() <= 0) return;
+  if (json.length() <= 0) return;
   
-  String json = Serial.readStringUntil('\n');  
   StaticJsonBuffer<200> jsonBuffer;  
   JsonObject& root = jsonBuffer.parseObject(json);
 
