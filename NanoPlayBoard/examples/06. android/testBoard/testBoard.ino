@@ -15,7 +15,7 @@ void loop() {
 
   while(1) {
     runSketch();
-    json = "";
+    //json = "";
     int newSketchId = getSketchId();
     if (newSketchId != -1) sketchId = newSketchId;
   }
@@ -53,7 +53,10 @@ void runSketch() {
               break;
 
       case 4: loadLedMatrixSketch();
-              break;              
+              break;
+
+      case 5: loadLedMatrixPatternSketch();
+              break;
     }
 }
 
@@ -136,4 +139,27 @@ void loadLedMatrixSketch() {
 
   String text = root["text"];
   board.ledmatrix.print(text);  
+}
+
+//---------------------------------
+
+void loadLedMatrixPatternSketch() {
+  if (json.length() <= 0) return;
+  
+  StaticJsonBuffer<200> jsonBuffer;  
+  JsonObject& root = jsonBuffer.parseObject(json);
+
+  if (!root.success()) {
+    Serial.println("{\"error\": \"Error parsing json message\"}");
+    return;
+  }
+
+  byte pattern[5];
+  pattern[0] = root["pattern"][0];
+  pattern[1] = root["pattern"][1];
+  pattern[2] = root["pattern"][2];
+  pattern[3] = root["pattern"][3];
+  pattern[4] = root["pattern"][4];
+
+  board.ledmatrix.print(pattern);
 }
