@@ -1,6 +1,6 @@
 # Library for the Arduino Nano Playboard
 
-This library enables easy access to the sensors and actuators of the [Arduino Nano PlayBoard][1]. The Arduino Nano PlayBoard is a board designed by [Antonio Morales][2] and it was designed for a introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
+This library enables easy access to the sensors and actuators of the [Arduino Nano PlayBoard][1]. The Arduino Nano PlayBoard is a board designed by [Antonio Morales][2] and it was designed for an introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
 
 This board may be an **excellent educational resource** for those students who want **to learn basic electronic and programming**.
 
@@ -74,16 +74,27 @@ board.ledmatrix.setScrollSpeed(10);
 board.ledmatrix.print("H o l a  m u n d o!");
 ```
 
-
 ## Credits
 
 This library has been developed by [Antonio Morales][2] and [José Juan Sánchez][5].
 
 ## License
 
-This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
+```
+Copyright 2016 Antonio Morales and José Juan Sánchez
 
-This library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
+Licensed under the GNU General Public License, Version 3 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.gnu.org/licenses/gpl-3.0.en.html
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
 [1]: http://github.com/AntonioMR/Arduino-Nano-Play-Board
 [2]: http://twitter.com/antonio1010mr
