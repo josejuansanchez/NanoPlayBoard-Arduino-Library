@@ -1,6 +1,6 @@
-# Library for the Arduino Nano Playboard
+# Library for the Arduino Nano Play Board
 
-This library enables easy access to the sensors and actuators of the [Arduino Nano PlayBoard][1]. The Arduino Nano PlayBoard is a board designed by [Antonio Morales][2] and it was designed for an introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
+This library enables easy access to the sensors and actuators of the [Arduino Nano Play Board][1]. The [Arduino Nano Play Board][1] is a board designed by [Antonio Morales][2] and it was designed for an introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
 
 This board may be an **excellent educational resource** for those students who want **to learn basic electronic and programming**.
 
@@ -9,7 +9,11 @@ The actuators available on the board are a 7x5 matrix LED, a RGB LED and a piezo
 
 For more information about the board please visit us at:  
 
-* https://github.com/AntonioMR/Arduino-Nano-Play-Board
+* http://github.com/AntonioMR/Nano-Play-Board
+
+For more information about the project please visit us at:  
+
+* http://nanoplayboard.org
 
 ![upperside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/upperside.png)
 ![underside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/underside.png)
@@ -96,7 +100,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ```
 
-[1]: http://github.com/AntonioMR/Arduino-Nano-Play-Board
+[1]: http://github.com/AntonioMR/Nano-Play-Board
 [2]: http://twitter.com/antonio1010mr
 [3]: http://hacklabalmeria.net
 [4]: https://goo.gl/photos/VKdNkxRcpEW4yBa47
