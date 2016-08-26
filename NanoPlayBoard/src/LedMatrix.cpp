@@ -100,3 +100,8 @@ void LedMatrix::setScrollSpeed(int speed)
 {
   _scrollSpeed = speed;
 }
+
+void LedMatrix::clear()
+{
+  print(' ');
+}
