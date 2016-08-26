@@ -13,6 +13,7 @@ class RGB
   public:
     RGB();
     void write(int r, int g, int b);
+    void setColor(String color);
 
   private:
     uint8_t _pinR;
