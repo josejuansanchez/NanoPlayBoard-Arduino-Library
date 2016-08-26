@@ -10,7 +10,6 @@
 LDR::LDR()
 {
   _pin = A0;
-  pinMode(_pin, OUTPUT);
 }
 
 int LDR::read()

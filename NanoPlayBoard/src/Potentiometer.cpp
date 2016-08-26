@@ -10,7 +10,6 @@
 Potentiometer::Potentiometer()
 {
   _pin = A1;
-  pinMode(_pin, OUTPUT);
 }
 
 int Potentiometer::read()
