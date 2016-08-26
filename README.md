@@ -61,6 +61,13 @@ NanoPlayBoard board;
 board.rgb.write(255, 0, 0);  
 ```
 
+You can use hexadecimal color strings with or without leading `#`.
+
+```c++
+board.rgb.setColor("#FF0000");
+board.rgb.setColor("FF0000");  
+```
+
 ### LED Matrix
 
 ```c++
