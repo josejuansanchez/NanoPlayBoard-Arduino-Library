@@ -15,14 +15,18 @@ RGB::RGB()
   
   pinMode(_pinR, OUTPUT);
   pinMode(_pinG, OUTPUT);
-  pinMode(_pinB, OUTPUT);  
+  pinMode(_pinB, OUTPUT);
+
+  _r = 255;
+  _g = 255;
+  _b = 255;
 }
 
 void RGB::write(uint8_t r, uint8_t g, uint8_t b)
 {
-  analogWrite(_pinR, _r);
-  analogWrite(_pinG, _g);
-  analogWrite(_pinB, _b);
+  analogWrite(_pinR, r);
+  analogWrite(_pinG, g);
+  analogWrite(_pinB, b);
 }
 
 void RGB::setColor(uint8_t r, uint8_t g, uint8_t b)
@@ -46,4 +50,20 @@ void RGB::setColor(String hexColor)
   _b = longColor & 0xFF;
 
   write(_r, _g, _b);
+}
+
+void RGB::setIntensity(int intensity)
+{
+  float scale = intensity / 100.0;
+  write((int)_r * scale, (int)_g * scale, (int)_b * scale);
+}
+
+void RGB::on()
+{
+  write(_r, _g, _b);
+}
+
+void RGB::off()
+{
+  write(0, 0, 0);
 }
