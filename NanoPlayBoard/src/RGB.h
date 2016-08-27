@@ -12,13 +12,19 @@ class RGB
 {
   public:
     RGB();
-    void write(int r, int g, int b);
+    void setColor(uint8_t r, uint8_t g, uint8_t b);
     void setColor(String color);
+
+  protected:
+    void write(uint8_t r, uint8_t g, uint8_t b);
 
   private:
     uint8_t _pinR;
     uint8_t _pinG;
     uint8_t _pinB;
+    uint8_t _r;
+    uint8_t _g;
+    uint8_t _b;
 };
 
 #endif
