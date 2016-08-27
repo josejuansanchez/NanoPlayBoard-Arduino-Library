@@ -69,8 +69,7 @@ void runSketch() {
 //---------------------------------
 int lastPotValue = -1;
 void loadPotentiometerSketch() {
-  //int potValue = board.potentiometer.read();
-  int potValue = analogRead(A1);
+  int potValue = board.potentiometer.read();
 
   if (potValue == lastPotValue) return;
   lastPotValue = potValue;
