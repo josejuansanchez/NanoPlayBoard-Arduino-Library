@@ -24,6 +24,8 @@ playTone        KEYWORD2
 clear           KEYWORD2
 print           KEYWORD2
 setScrollSpeed  KEYWORD2
+setColor        KEYWORD2
+setIntensity    KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
