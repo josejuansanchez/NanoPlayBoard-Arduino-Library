@@ -15,8 +15,8 @@ For more information about the project please visit us at:
 
 * http://nanoplayboard.org
 
-![upperside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/upperside.png)
-![underside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/underside.png)
+![upperside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/upperside.png)
+![underside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/underside.png)
 
 ## Installation
 
@@ -25,7 +25,7 @@ For more information about the project please visit us at:
 * Restart the Arduino IDE.
 * Now the example sketches will be available in the menu `File > Examples > NanoPlayBoard`.
 
-![examples](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard/master/NanoPlayBoard/extras/examples.png)
+![examples](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/examples.png)
 
 ## Quick start
 
