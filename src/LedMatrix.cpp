@@ -105,3 +105,11 @@ void LedMatrix::clear()
 {
   print(' ');
 }
+
+void LedMatrix::printInLandscape(int number)
+{
+  byte pattern[5];
+  // Workaround to avoid a: call of overloaded 'print(const byte [5])' is ambiguous
+  memcpy(pattern, landscape_numbers[number], sizeof(landscape_numbers[number]));
+  print(pattern);
+}

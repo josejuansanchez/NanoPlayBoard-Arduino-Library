@@ -10,6 +10,7 @@
 #include <Arduino.h>
 #include "Register.h"
 #include "Alphabet.h"
+#include "LandscapeNumbers.h"
 
 class LedMatrix
 {
@@ -21,6 +22,7 @@ class LedMatrix
         void print(char message[]);
         void print(String message);
         void setScrollSpeed(int speed);
+        void printInLandscape(int number);
 
     private:
         static uint8_t _columns[5];       // Pins attached to the columns of the led matrix
