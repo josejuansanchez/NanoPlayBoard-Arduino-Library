@@ -7,25 +7,25 @@
 #######################################
 
 NanoPlayBoard   KEYWORD1
+potentiometer   KEYWORD1
+rgb             KEYWORD1
+ldr             KEYWORD1
+buzzer          KEYWORD1
+ledmatrix       KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
 
-potentiometer   KEYWORD2
-rgb             KEYWORD2
-ldr             KEYWORD2
-buzzer          KEYWORD2
-ledmatrix       KEYWORD2
-
-read            KEYWORD2
-write           KEYWORD2
-playTone        KEYWORD2
-clear           KEYWORD2
-print           KEYWORD2
-setScrollSpeed  KEYWORD2
-setColor        KEYWORD2
-setIntensity    KEYWORD2
+read                KEYWORD2
+write               KEYWORD2
+playTone            KEYWORD2
+clear               KEYWORD2
+print               KEYWORD2
+printInLandscape    KEYWORD2
+setScrollSpeed      KEYWORD2
+setColor            KEYWORD2
+setIntensity        KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
