@@ -1,6 +1,7 @@
 /*
   LedMatrix.cpp - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales, June, 2016.
+  Contributions by José Juan Sánchez.
   Released into the public domain.
 */
 
@@ -94,7 +95,6 @@ void LedMatrix::print(String message)
     }
   }
 }
-
 
 void LedMatrix::setScrollSpeed(int speed)
 {

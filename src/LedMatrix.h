@@ -1,6 +1,7 @@
 /*
   LedMatrix.h - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales, June, 2016.
+  Contributions by José Juan Sánchez.
   Released into the public domain.
 */
 
