@@ -3,14 +3,12 @@
 NanoPlayBoard board;
 
 void setup() {
-  
+  board.rgb.setColor("FF0000");
 }
 
 void loop() {
-  board.rgb.setColor("FF0000");
-    
-  for(int i = 100; i > 0; i--) {
-    board.rgb.setIntensity(i);
-    delay(10);
-  }
+  int potValue = board.potentiometer.read();
+  int intensity = map(potValue, 0 ,1023, 0 , 100);
+  board.rgb.setIntensity(intensity);
+  board.ledmatrix.printInLandscape(intensity);
 }
