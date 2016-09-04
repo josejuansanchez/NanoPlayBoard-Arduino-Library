@@ -14,6 +14,7 @@ class Buzzer
     Buzzer();
     void playTone(unsigned int frequency);
     void playTone(unsigned int frequency, unsigned long duration);
+    void stopTone();
 
   private:
     uint8_t _pin;

@@ -22,3 +22,8 @@ void Buzzer::playTone(unsigned int frequency, unsigned long duration)
 {
   tone(_pin, frequency, duration);
 }
+
+void Buzzer::stopTone()
+{
+  noTone(_pin);
+}
