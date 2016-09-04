@@ -20,6 +20,8 @@ RGB::RGB()
   _r = 255;
   _g = 255;
   _b = 255;
+
+  _isOn = false;
 }
 
 void RGB::write(uint8_t r, uint8_t g, uint8_t b)
@@ -61,9 +63,20 @@ void RGB::setIntensity(int intensity)
 void RGB::on()
 {
   write(_r, _g, _b);
+  _isOn = true;
 }
 
 void RGB::off()
 {
   write(0, 0, 0);
+  _isOn = false;
+}
+
+void RGB::toggle()
+{
+  if (_isOn) {
+    off();
+  } else {
+    on();
+  }
 }

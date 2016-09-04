@@ -17,6 +17,7 @@ class RGB
     void setIntensity(int intensity);
     void on();
     void off();
+    void toggle();
 
   protected:
     void write(uint8_t r, uint8_t g, uint8_t b);
@@ -28,6 +29,7 @@ class RGB
     uint8_t _r;
     uint8_t _g;
     uint8_t _b;
+    bool _isOn;
 };
 
 #endif
