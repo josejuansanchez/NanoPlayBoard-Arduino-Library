@@ -37,6 +37,6 @@ void loop() {
     noteOn(0x90, pitch, 0x6E);
   }
 
-  board.rgb.write(pitch, pitch, pitch);
+  board.rgb.setColor(pitch, pitch, pitch);
   board.ledmatrix.print(pitch);
 }

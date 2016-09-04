@@ -38,11 +38,11 @@ void loop() {
   }
 
   if (pitch <= 40) {
-    board.rgb.write(255, 0, 0);
+    board.rgb.setColor(255, 0, 0);
   } else if (pitch <= 80) {
-    board.rgb.write(0, 255, 0);
+    board.rgb.setColor(0, 255, 0);
   } else {
-    board.rgb.write(0, 0, 255);
+    board.rgb.setColor(0, 0, 255);
   }
   
   board.ledmatrix.print(pitch);
