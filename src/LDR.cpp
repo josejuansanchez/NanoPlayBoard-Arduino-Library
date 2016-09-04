@@ -16,3 +16,14 @@ int LDR::read()
 {
   return analogRead(_pin);
 }
+
+int LDR::scaleTo(int toLow, int toHigh)
+{
+    return scaleTo(0, 1022, 0, 99);
+}
+
+int LDR::scaleTo(int fromLow, int fromHigh, int toLow, int toHigh)
+{
+    int value = read();
+    return map(value, fromLow, fromHigh, toLow, toHigh);
+}

@@ -13,6 +13,8 @@ class LDR
   public:
     LDR();
     int read();
+    int scaleTo(int toLow, int toHigh);
+    int scaleTo(int fromLow, int fromHigh, int toLow, int toHigh);
 
   private:
     uint8_t _pin;
