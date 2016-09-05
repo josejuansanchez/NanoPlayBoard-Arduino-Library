@@ -24,6 +24,6 @@ notifications:
     on_failure: change
 
 env:
-  - ARDUINO_VERSION=arduino-1.6.11
-  - BOARD=arduino:avr:nano:cpu=atmega168
-  - BOARD=arduino:avr:nano:cpu=atmega328
+- ARDUINO_VERSION=arduino-1.6.11
+- BOARD=arduino:avr:nano:cpu=atmega168
+- BOARD=arduino:avr:nano:cpu=atmega328
