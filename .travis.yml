@@ -10,14 +10,7 @@ before_install:
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/NanoPlayBoard
 script:
-  - arduino --verify --board ${BOARD} $PWD/examples/01.potentiometer/read/read.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/01.potentiometer/scaleTo/scaleTo.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/02.ldr/read/read.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/02.ldr/scaleTo/scaleTo.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/03.buzzer/playTone/playTone.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/04.rgb/on_off/on_off.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/04.rgb/setColor_HEX/setColor_HEX.ino
-  - arduino --verify --board ${BOARD} $PWD/examples/04.rgb/setColor_RGB/setColor_RGB.ino
+  - ./scripts/travis-verify-examples.sh
 notifications:
   email:
     on_success: change
