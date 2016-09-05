@@ -19,7 +19,7 @@ int Potentiometer::read()
 
 int Potentiometer::scaleTo(int toLow, int toHigh)
 {
-    return scaleTo(0, 1022, 0, 99);
+    return scaleTo(0, 1022, toLow, toHigh);
 }
 
 int Potentiometer::scaleTo(int fromLow, int fromHigh, int toLow, int toHigh)
