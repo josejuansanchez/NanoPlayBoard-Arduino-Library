@@ -10,7 +10,7 @@ before_install:
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/NanoPlayBoard
 script:
-  - ./scripts/travis-verify-examples.sh
+  - ./scripts/travis-verify-examples.sh ${BOARD}
 notifications:
   email:
     on_success: change
