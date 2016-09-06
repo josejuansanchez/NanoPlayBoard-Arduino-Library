@@ -1,0 +1,25 @@
+language: c
+before_install:
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16"
+  - sleep 3
+  - export DISPLAY=:1.0
+  - wget http://downloads.arduino.cc/${ARDUINO_VERSION}-linux64.tar.xz
+  - tar xf ${ARDUINO_VERSION}-linux64.tar.xz
+  - sudo mv ${ARDUINO_VERSION} /usr/local/share/arduino
+  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
+install:
+  - ln -s $PWD /usr/local/share/arduino/libraries/NanoPlayBoard
+  - git clone https://github.com/bblanchon/ArduinoJson /usr/local/share/arduino/libraries/ArduinoJson
+script:
+  - ./scripts/travis-verify-examples.sh ${BOARD}
+notifications:
+  email:
+    on_success: change
+    on_failure: change
+
+env:
+  global:
+    - ARDUINO_VERSION=arduino-1.6.11
+  matrix:
+    - BOARD=arduino:avr:nano:cpu=atmega168
+    - BOARD=arduino:avr:nano:cpu=atmega328
