@@ -1,5 +1,5 @@
-#!/bin/bash
-set -ev
+#!/usr/bin/env sh
+set -evx
 
 BOARD=$1
 
