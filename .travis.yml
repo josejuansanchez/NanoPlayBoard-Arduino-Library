@@ -9,6 +9,7 @@ before_install:
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
 install:
   - ln -s $PWD /usr/local/share/arduino/libraries/NanoPlayBoard
+  - git clone https://github.com/bblanchon/ArduinoJson /usr/local/share/arduino/libraries/ArduinoJson
 script:
   - ./scripts/travis-verify-examples.sh ${BOARD}
 notifications:
@@ -19,7 +20,6 @@ notifications:
 env:
   global:
     - ARDUINO_VERSION=arduino-1.6.11
-  
   matrix:
     - BOARD=arduino:avr:nano:cpu=atmega168
     - BOARD=arduino:avr:nano:cpu=atmega328
