@@ -1,6 +1,6 @@
-# Library for the Arduino Nano Play Board
+# Library for the Arduino NanoPlayBoard [![Build Status](https://travis-ci.org/josejuansanchez/NanoPlayBoard-Arduino-Library.svg?branch=master)](https://travis-ci.org/josejuansanchez/NanoPlayBoard-Arduino-Library)
 
-This library enables easy access to the sensors and actuators of the [Arduino Nano Play Board][1]. The [Arduino Nano Play Board][1] is a board designed by [Antonio Morales][2] and it was designed for an introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
+This library enables easy access to the sensors and actuators of the [Arduino NanoPlayBoard][1]. The [Arduino NanoPlayBoard][1] is a board designed by [Antonio Morales][2] and it was designed for an introductory workshop about soldering organized by [HackLab Almería][3]. You can see the gallery of images [here][4].
 
 This board may be an **excellent educational resource** for those students who want **to learn basic electronic and programming**.
 
