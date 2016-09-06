@@ -107,7 +107,7 @@ void loadRGBSketch() {
   int g = root["g"];
   int b = root["b"];
 
-  board.rgb.write(r, g, b);
+  board.rgb.setColor(r, g, b);
 }
 
 //---------------------------------
