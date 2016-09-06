@@ -15,10 +15,14 @@ For more information about the project please visit us at:
 
 * http://nanoplayboard.org
 
-![upperside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/upperside.png)
-![underside](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/underside.png)
+## PCB
+### Upperside
+![upperside][upperside]
 
-## Installation
+### Underside
+![underside][underside]
+
+## Installation
 
 * [Download the library][releases].
 * Go to the Arduino IDE, select `Sketch > Import Library > Add library .ZIP`
@@ -29,36 +33,53 @@ For more information about the project please visit us at:
 
 ## Quick start
 
-### Potentiometer
+### Include the library and declare a `NanoPlayBoard` object.
 
 ```c++
+#include <NanoPlayBoard.h>
+
 NanoPlayBoard board;
 
+...
+```
+
+### Potentiometer
+* read
+```c++
 int value = board.potentiometer.read();
 ```
 
-### LDR
-
+* scaleTo
 ```c++
-NanoPlayBoard board;
+int value = board.potentiometer.scaleTo(0, 99);
+```
 
+### LDR
+* read
+```c++
 int value = board.ldr.read();
 ```
 
-### Buzzer
-
+* scaleTo
 ```c++
-NanoPlayBoard board;
+int value = board.ldr.scaleTo(0, 99);
+```
 
+### Buzzer
+* playTone
+```c++
 board.buzzer.playTone(440);
 ```
 
-### LED RGB
-
+* stopTone
 ```c++
-NanoPlayBoard board;
+board.buzzer.stopTone();
+```
 
-board.rgb.write(255, 0, 0);  
+### LED RGB
+* setColor
+```c++
+board.rgb.setColor(255, 0, 0);
 ```
 
 You can use hexadecimal color strings with or without leading `#`.
@@ -68,21 +89,43 @@ board.rgb.setColor("#FF0000");
 board.rgb.setColor("FF0000");  
 ```
 
-### LED Matrix
-
+* setIntensity
 ```c++
-NanoPlayBoard board;
+board.rgb.setIntensity(25);
+```
 
+* on
+```c++
+board.rgb.on();
+```
+
+* off
+```c++
+board.rgb.off();
+```
+
+* toggle
+```c++
+board.rgb.toggle();
+```
+
+### LED Matrix
+* print
+```c++
 board.ledmatrix.print("H o l a  m u n d o!");
 ```
 
-The library allows you to control the scroll speed that is used to display the text in the led matrix.
+* setScrollSpeed
 
 ```c++
-NanoPlayBoard board;
-
 board.ledmatrix.setScrollSpeed(10);
 board.ledmatrix.print("H o l a  m u n d o!");
+```
+The library allows you to control the scroll speed that is used to display the text in the led matrix.
+
+* printInLandscape
+```c++
+board.ledmatrix.printInLandscpe(99);
 ```
 
 ## Credits
@@ -113,3 +156,5 @@ limitations under the License.
 [4]: https://goo.gl/photos/VKdNkxRcpEW4yBa47
 [5]: http://josejuansanchez.org
 [releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
+[upperside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/upperside_v1.png
+[underside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/underside_v1.png
