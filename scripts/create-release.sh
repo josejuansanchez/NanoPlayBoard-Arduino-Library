@@ -1,5 +1,4 @@
 #!/bin/bash
-
 set -x
 
 if [ $# -ne 1 ]; then
@@ -9,23 +8,25 @@ fi
 
 TAG=$1
 RELEASE=NanoPlayBoard-$TAG.zip
-TEMP=/tmp/NanoPlayBoard
+SOURCES=/tmp/NanoPlayBoard
 
-echo "Creating release: $OUTPUT"
+# Remove old sources
+rm -rf $SOURCES
+mkdir -p $SOURCES
 
-rm -rf $RELEASE
-rm -rf $TEMP
-mkdir -p $TEMP
-
+# Copy sources into a temporary folder
 cd ..
-cp -R src $TEMP
-cp -R examples $TEMP
-cp -R experimental $TEMP
-cp README.md $TEMP
-cp keywords.txt $TEMP
-cp library.properties $TEMP
+cp -R src $SOURCES
+cp -R examples $SOURCES
+cp -R experimental $SOURCES
+cp README.md $SOURCES
+cp keywords.txt $SOURCES
+cp library.properties $SOURCES
 
-cd $TEMP
+# Remove temporary files
+cd $SOURCES
 find . -name "*.DS_Store" -type f -delete
+
+# Create .zip file
 cd ..
 zip -r $RELEASE ./NanoPlayBoard
