@@ -14,7 +14,7 @@ class RGB
     RGB();
     void setColor(uint8_t r, uint8_t g, uint8_t b);
     void setColor(String color);
-    void setIntensity(int intensity);
+    void setIntensity(uint8_t intensity);
     void on();
     void off();
     void toggle();

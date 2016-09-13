@@ -35,7 +35,7 @@ void Register::write(byte data)
     digitalWrite(_ClkIn, LOW);
     digitalWrite(_ClkOut, LOW);
 
-    for(int k = 0; k < 8; k++){
+    for(uint8_t k = 0; k < 8; k++) {
         delayMicroseconds(long(_period/4));
         digitalWrite(_Din,bitRead(data,k));
         delayMicroseconds(long(_period/4));

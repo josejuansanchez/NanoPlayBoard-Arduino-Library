@@ -54,10 +54,10 @@ void RGB::setColor(String hexColor)
   write(_r, _g, _b);
 }
 
-void RGB::setIntensity(int intensity)
+void RGB::setIntensity(uint8_t intensity)
 {
   float scale = intensity / 100.0;
-  write((int)_r * scale, (int)_g * scale, (int)_b * scale);
+  write((uint8_t)_r * scale, (uint8_t)_g * scale, (uint8_t)_b * scale);
 }
 
 void RGB::on()

@@ -22,13 +22,13 @@ class LedMatrix
         void print(const byte pattern[5]);
         void print(char message[]);
         void print(String message);
-        void setScrollSpeed(int speed);
-        void printInLandscape(int number);
+        void setScrollSpeed(uint8_t speed);
+        void printInLandscape(uint8_t number);
 
     private:
         static uint8_t _columns[5];       // Pins attached to the columns of the led matrix
         Register _register = Register();  // Value that will be written in the shift register for each column
-        int _scrollSpeed;                 // Scroll speed used to display messages
+        uint8_t _scrollSpeed;             // Scroll speed used to display messages
 };
 
 #endif
