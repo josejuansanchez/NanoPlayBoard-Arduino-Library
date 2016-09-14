@@ -23,16 +23,26 @@ For more information about the project please visit us at:
 ![underside][underside]
 
 ## Installation
+### Using the Library Manager
+* Open the Arduino IDE and select `Sketch > Include Library > Manage Libraries`.
+* Search `NanoPlayBoard` in the Library Manger.
+* Select the version of the library you want to install.
+* Click on install and wait for the IDE to install the new library.
 
+![library_manager][library_manager]
+
+### Importing a .zip Library
 * [Download the library][releases].
-* Go to the Arduino IDE, select `Sketch > Import Library > Add library .ZIP`
+* Open the Arduino IDE and select `Sketch > Include Library > Add .ZIP Library`.
 * Restart the Arduino IDE.
-* Now the example sketches will be available in the menu `File > Examples > NanoPlayBoard`.
 
-![examples](https://raw.githubusercontent.com/josejuansanchez/NanoPlayBoard-Arduino-Library/master/extras/examples.png)
+### Examples
+Once the library has been successfully installed, the example sketches will be available in the IDE.
+* Select `File > Examples > NanoPlayBoard`.
+
+![examples][examples]
 
 ## Quick start
-
 ### Include the library and declare a `NanoPlayBoard` object.
 
 ```c++
@@ -156,5 +166,8 @@ limitations under the License.
 [4]: https://goo.gl/photos/VKdNkxRcpEW4yBa47
 [5]: http://josejuansanchez.org
 [releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
+
 [upperside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/upperside_v1.png
 [underside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/underside_v1.png
+[library_manager]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/library_manager.png
+[examples]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/examples.png
