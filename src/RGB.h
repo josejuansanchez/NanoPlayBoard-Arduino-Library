@@ -3,6 +3,7 @@
   Created by José Juan Sánchez, June 19, 2016.
   Released into the public domain.
 */
+
 #ifndef RGB_h
 #define RGB_h
 
