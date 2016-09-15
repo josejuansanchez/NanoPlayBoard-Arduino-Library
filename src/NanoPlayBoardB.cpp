@@ -11,5 +11,4 @@ NanoPlayBoardB::NanoPlayBoardB()
 {
     potentiometer = Potentiometer(PIN_POT);
     ldr = LDR(PIN_LDR);
-    buzzer = Buzzer(PIN_BUZZER);
 }
