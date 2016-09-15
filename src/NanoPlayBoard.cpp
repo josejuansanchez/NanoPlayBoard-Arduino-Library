@@ -12,19 +12,13 @@ NanoPlayBoard::NanoPlayBoard()
     NanoPlayBoard(MODEL_A);
 }
 
-NanoPlayBoard::NanoPlayBoard(uint8_t type)
+NanoPlayBoard::NanoPlayBoard(uint8_t model)
 {
-    uint8_t pot_pin;
+    #if (NPB_MODEL_A == model)
+        #include "PinsModelA.h"
+    #else
+        #include "PinsModelB.h"
+    #endif
 
-    switch(type) {
-        case MODEL_A:
-        pot_pin = A1;
-        break;
-
-        case MODEL_B:
-        pot_pin = A7;
-        break;
-    }
-
-    potentiometer = Potentiometer(pot_pin);
+    potentiometer = Potentiometer(POT_PIN);
 }

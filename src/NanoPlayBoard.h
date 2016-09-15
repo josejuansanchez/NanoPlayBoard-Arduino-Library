@@ -14,14 +14,14 @@
 #include "Buzzer.h"
 #include "LedMatrix.h"
 
-#define MODEL_A 0
-#define MODEL_B 1
+#define NPB_MODEL_A 0
+#define NPB_MODEL_B 1
 
 class NanoPlayBoard
 {
   public:
     NanoPlayBoard();
-    NanoPlayBoard(uint8_t type);
+    NanoPlayBoard(uint8_t model);
     Potentiometer potentiometer;
     RGB rgb;
     LDR ldr;
