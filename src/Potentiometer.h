@@ -3,6 +3,7 @@
   Created by José Juan Sánchez, June 19, 2016.
   Released into the public domain.
 */
+
 #ifndef Potentiometer_h
 #define Potentiometer_h
 
@@ -12,6 +13,7 @@ class Potentiometer
 {
   public:
     Potentiometer();
+    Potentiometer(uint8_t pin);
     int read();
     int scaleTo(int toLow, int toHigh);
     int scaleTo(int fromLow, int fromHigh, int toLow, int toHigh);

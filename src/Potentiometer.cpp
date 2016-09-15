@@ -9,7 +9,12 @@
 
 Potentiometer::Potentiometer()
 {
-  _pin = A1;
+
+}
+
+Potentiometer::Potentiometer(uint8_t pin)
+{
+  _pin = pin;
 }
 
 int Potentiometer::read()
