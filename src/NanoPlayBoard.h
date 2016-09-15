@@ -13,15 +13,12 @@
 #include "LDR.h"
 #include "Buzzer.h"
 #include "LedMatrix.h"
-
-#define NPB_MODEL_A 0
-#define NPB_MODEL_B 1
+#include "PinsModelA.h"
 
 class NanoPlayBoard
 {
   public:
     NanoPlayBoard();
-    NanoPlayBoard(uint8_t model);
     Potentiometer potentiometer;
     RGB rgb;
     LDR ldr;

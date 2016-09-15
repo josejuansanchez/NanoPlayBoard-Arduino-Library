@@ -9,16 +9,7 @@
 
 NanoPlayBoard::NanoPlayBoard()
 {
-    NanoPlayBoard(MODEL_A);
-}
-
-NanoPlayBoard::NanoPlayBoard(uint8_t model)
-{
-    #if (NPB_MODEL_A == model)
-        #include "PinsModelA.h"
-    #else
-        #include "PinsModelB.h"
-    #endif
-
-    potentiometer = Potentiometer(POT_PIN);
+    potentiometer = Potentiometer(PIN_POT);
+    ldr = LDR(PIN_LDR);
+    buzzer = Buzzer(PIN_BUZZER);
 }
