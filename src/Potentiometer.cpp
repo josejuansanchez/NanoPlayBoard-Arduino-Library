@@ -7,10 +7,7 @@
 #include "Arduino.h"
 #include "Potentiometer.h"
 
-Potentiometer::Potentiometer()
-{
-
-}
+Potentiometer::Potentiometer() {}
 
 Potentiometer::Potentiometer(uint8_t pin)
 {
