@@ -13,6 +13,7 @@ class RGB
 {
   public:
     RGB();
+    RGB(uint8_t pinR, uint8_t pinG, uint8_t pinB);
     void setColor(uint8_t r, uint8_t g, uint8_t b);
     void setColor(String color);
     void setIntensity(uint8_t intensity);

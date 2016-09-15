@@ -7,11 +7,13 @@
 #include "Arduino.h"
 #include "RGB.h"
 
-RGB::RGB()
+RGB::RGB() {}
+
+RGB::RGB(uint8_t pinR, uint8_t pinG, uint8_t pinB)
 {
-  _pinR = 9;
-  _pinG = 10;
-  _pinB = 11;
+  _pinR = pinR;
+  _pinG = pinG;
+  _pinB = pinB;
   
   pinMode(_pinR, OUTPUT);
   pinMode(_pinG, OUTPUT);
