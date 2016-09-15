@@ -3,6 +3,7 @@
   Created by José Juan Sánchez, June 19, 2016.
   Released into the public domain.
 */
+
 #ifndef Buzzer_h
 #define Buzzer_h
 
@@ -12,6 +13,7 @@ class Buzzer
 {
   public:
     Buzzer();
+    Buzzer(uint8_t pin);
     void playTone(unsigned int frequency);
     void playTone(unsigned int frequency, unsigned long duration);
     void stopTone();

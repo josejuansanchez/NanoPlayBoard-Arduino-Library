@@ -7,9 +7,11 @@
 #include "Arduino.h"
 #include "Buzzer.h"
 
-Buzzer::Buzzer()
+Buzzer::Buzzer() {}
+
+Buzzer::Buzzer(uint8_t pin)
 {
-  _pin = 3;
+  _pin = pin;
   pinMode(_pin, OUTPUT);
 }
 

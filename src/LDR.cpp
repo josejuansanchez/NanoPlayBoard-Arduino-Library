@@ -7,9 +7,11 @@
 #include "Arduino.h"
 #include "LDR.h"
 
-LDR::LDR()
+LDR::LDR() {}
+
+LDR::LDR(uint8_t pin)
 {
-  _pin = A0;
+  _pin = pin;
 }
 
 int LDR::read()
