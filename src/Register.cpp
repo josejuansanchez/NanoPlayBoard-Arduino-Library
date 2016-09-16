@@ -7,11 +7,13 @@
 #include <Arduino.h>
 #include "Register.h"
 
-Register::Register()
+Register::Register() {}
+
+Register::Register(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
-    _dIn = 13;
-    _clkIn = 12;
-    _clkOut = 6;
+    _dIn = dIn;
+    _clkIn = clkIn;
+    _clkOut = clkOut;
     _baudRate = 9600;
     _period = long(1000000/_baudRate);
     
