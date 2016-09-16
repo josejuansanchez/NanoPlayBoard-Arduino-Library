@@ -20,9 +20,8 @@ LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
     digitalWrite(_columnPins[i], LOW);
   }
   
+  // Initialize and clear the shift register
   _register = Register(dIn, clkIn, clkOut);
-
-  // Clear the value used for the shift register
   _register.clear();
 
   // Initialize the text scroll speed used to display messages

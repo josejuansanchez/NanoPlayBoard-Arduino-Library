@@ -28,8 +28,8 @@ class LedMatrix
 
   private:
     static uint8_t _columnPins[5];    // Pins attached to the columns of the led matrix
-    Register _register;               // Value that will be written in the shift register for each column
-    uint8_t _scrollSpeed;             // Scroll speed used to display messages
+    Register _register;
+    uint8_t _scrollSpeed;
 };
 
 #endif
