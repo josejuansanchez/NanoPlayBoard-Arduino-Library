@@ -13,17 +13,8 @@ LedMatrixB::LedMatrixB() {}
 
 LedMatrixB::LedMatrixB(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
-  _dIn = dIn;
-  _clkIn = clkIn;
-  _clkOut = clkOut;
-
-  pinMode(_dIn, OUTPUT);
-  pinMode(_clkIn, OUTPUT);
-  pinMode(_clkOut, OUTPUT);
-
-  _register = Register(_dIn, _clkIn, clkOut);
+  _register = Register(dIn, clkIn, clkOut);
   _register.clear();
-
   _scrollSpeed = 10;
 }
 

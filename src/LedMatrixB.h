@@ -26,9 +26,6 @@ class LedMatrixB
     void printInLandscape(uint8_t number);
 
   private:
-    uint8_t _dIn;                     // Pin attached to the serial pin
-    uint8_t _clkIn;                   // Pin attached to the shift clock
-    uint8_t _clkOut;                  // Pin atrached to the latch clock
     static uint8_t _columnValues[5];
     Register _register;
     uint8_t _scrollSpeed;
