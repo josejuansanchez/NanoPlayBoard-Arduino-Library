@@ -17,6 +17,7 @@ class LedMatrix
 {
     public:
         LedMatrix();
+        LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
         void clear();
         void print(char symbol);
         void print(const byte pattern[5]);
@@ -27,7 +28,7 @@ class LedMatrix
 
     private:
         static uint8_t _columns[5];       // Pins attached to the columns of the led matrix
-        Register _register = Register();  // Value that will be written in the shift register for each column
+        Register _register;               // Value that will be written in the shift register for each column
         uint8_t _scrollSpeed;             // Scroll speed used to display messages
 };
 

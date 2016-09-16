@@ -11,7 +11,9 @@
 
 uint8_t LedMatrix::_columns[5] = {2, 4, 5, 16, 17};
 
-LedMatrix::LedMatrix()
+LedMatrix::LedMatrix() {}
+
+LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
   // Initialize the pins used for the columns as outputs
   for(uint8_t i = 0; i < 5; i++) {
@@ -19,6 +21,8 @@ LedMatrix::LedMatrix()
     digitalWrite(_columns[i], LOW);
   }
   
+  _register = Register(dIn, clkIn, clkOut);
+
   // Clear the value used for the shift register
   _register.clear();
 
