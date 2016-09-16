@@ -5,11 +5,10 @@
   Released into the public domain.
 */
 
-#include <Arduino.h>
-#include "Register.h"
+#include "Arduino.h"
 #include "LedMatrix.h"
 
-uint8_t LedMatrix::_columns[5] = {2, 4, 5, 16, 17};
+uint8_t LedMatrix::_columnPins[5] = {2, 4, 5, 16, 17};
 
 LedMatrix::LedMatrix() {}
 
@@ -17,8 +16,8 @@ LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
   // Initialize the pins used for the columns as outputs
   for(uint8_t i = 0; i < 5; i++) {
-    pinMode(_columns[i], OUTPUT);
-    digitalWrite(_columns[i], LOW);
+    pinMode(_columnPins[i], OUTPUT);
+    digitalWrite(_columnPins[i], LOW);
   }
   
   _register = Register(dIn, clkIn, clkOut);
@@ -39,16 +38,16 @@ void LedMatrix::print(char symbol)
   if ((symbol >= 0x20) & (symbol <=0x7e)) {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(pgm_read_byte(&ascii[symbol-0x20][i]));
-      digitalWrite(_columns[i], HIGH);
+      digitalWrite(_columnPins[i], HIGH);
       delay(2);
-      digitalWrite(_columns[i], LOW);
+      digitalWrite(_columnPins[i], LOW);
     }
   } else {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(pgm_read_byte(&ascii[0][i]));
-      digitalWrite(_columns[i], HIGH);
+      digitalWrite(_columnPins[i], HIGH);
       delay(2);
-      digitalWrite(_columns[i], LOW);
+      digitalWrite(_columnPins[i], LOW);
     }
   }
 }
@@ -58,9 +57,9 @@ void LedMatrix::print(const byte pattern[5])
 {
   for(uint8_t i = 0; i < 5; i++) {
     _register.write(pattern[i]);
-    digitalWrite(_columns[i], HIGH);
+    digitalWrite(_columnPins[i], HIGH);
     delay(2);
-    digitalWrite(_columns[i], LOW);
+    digitalWrite(_columnPins[i], LOW);
   }
 }
 
