@@ -4,7 +4,7 @@
   Released into the public domain.
 */
 
-#include <Arduino.h>
+#include "Arduino.h"
 #include "Register.h"
 
 Register::Register() {}
@@ -16,7 +16,7 @@ Register::Register(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
     _clkOut = clkOut;
     _baudRate = 9600;
     _period = long(1000000/_baudRate);
-    
+
     pinMode(_dIn, OUTPUT);
     pinMode(_clkIn, OUTPUT);
     pinMode(_clkOut, OUTPUT);
@@ -45,6 +45,7 @@ void Register::write(byte data)
         delayMicroseconds(long(_period/2));
         digitalWrite(_clkIn, LOW);
     }
+
     delayMicroseconds(int(_period/4));
     digitalWrite(_clkOut, HIGH);
     delayMicroseconds(long(_period/2));
