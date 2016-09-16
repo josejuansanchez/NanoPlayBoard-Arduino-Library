@@ -10,7 +10,8 @@
 NanoPlayBoard::NanoPlayBoard()
 {
     potentiometer = Potentiometer(PIN_POT);
-    ldr = LDR(PIN_LDR);
-    buzzer = Buzzer(PIN_BUZZER);
-    rgb = RGB(PIN_R, PIN_G, PIN_B);
+    ldr           = LDR(PIN_LDR);
+    buzzer        = Buzzer(PIN_BUZZER);
+    rgb           = RGB(PIN_R, PIN_G, PIN_B);
+    ledmatrix     = LedMatrix(PIN_DIN, PIN_CLKIN, PIN_CLKOUT);
 }
