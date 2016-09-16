@@ -1,3 +1,6 @@
+#ifndef LandScapeNumbers_h
+#define LandScapeNumbers_h
+
 #include <avr/pgmspace.h>
 
 const byte landscape_numbers[100][5] PROGMEM = {
@@ -102,3 +105,5 @@ const byte landscape_numbers[100][5] PROGMEM = {
   {0xee,0xaa,0xee,0xa8,0xe8},     // 98
   {0xee,0xaa,0xee,0x88,0x88}      // 99
 };
+
+#endif

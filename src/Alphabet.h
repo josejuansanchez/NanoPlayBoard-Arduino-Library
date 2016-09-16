@@ -1,3 +1,6 @@
+#ifndef Alphabet_h
+#define Alphabet_h
+
 #include <avr/pgmspace.h>
 
 const byte ascii[95][5] PROGMEM = {
@@ -97,3 +100,5 @@ const byte ascii[95][5] PROGMEM = {
   {0x00,0x00,0x83,0x6d,0x11},     // 0x7d -> }
   {0x11,0x21,0x11,0x09,0x11}      // 0x7e -> ~
 };
+
+#endif
