@@ -1,22 +1,14 @@
 #ifndef PINS_MODEL_A
 #define PINS_MODEL_A
 
-#undef PIN_POT
 #define PIN_POT     A1
-
-#undef PIN_LDR
 #define PIN_LDR     A0
-
-#undef PIN_BUZZER
 #define PIN_BUZZER  3
-
-#undef PIN_R
-#define PIN_R  9
-
-#undef PIN_G
-#define PIN_G  10
-
-#undef PIN_B
-#define PIN_B  11
+#define PIN_R       9
+#define PIN_G       10
+#define PIN_B       11
+#define PIN_DIN     13
+#define PIN_CLKIN   12
+#define PIN_CLKOUT  6
 
 #endif
