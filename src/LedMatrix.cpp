@@ -84,19 +84,9 @@ void LedMatrix::print(char message[])
 // Display the message stored in the String object
 void LedMatrix::print(String message)
 {
-  byte pattern[5];
-  for (uint8_t i = 0; i < message.length()*5-4; i++) {
-    pattern[0] = pgm_read_byte(&ascii[message.charAt(i/5)-0x20][i%5]);
-    pattern[1] = pgm_read_byte(&ascii[message.charAt((i+1)/5)-0x20][(i+1)%5]);
-    pattern[2] = pgm_read_byte(&ascii[message.charAt((i+2)/5)-0x20][(i+2)%5]);
-    pattern[3] = pgm_read_byte(&ascii[message.charAt((i+3)/5)-0x20][(i+3)%5]);
-    pattern[4] = pgm_read_byte(&ascii[message.charAt((i+4)/5)-0x20][(i+4)%5]);
-
-    // Display the pattern several times
-    for(uint8_t n = 0; n < _scrollSpeed; n++) {
-      print(pattern);
-    }
-  }
+  char msgChar[256];
+  message.toCharArray(msgChar, 256);
+  print(msgChar);
 }
 
 void LedMatrix::setScrollSpeed(uint8_t speed)
