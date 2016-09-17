@@ -8,14 +8,17 @@
 #define NanoPlayBoardB_h
 
 #include "NanoPlayBoard.h"
-#include "LedMatrixB.h"
 #include "PinsModelB.h"
+#include "LedMatrixB.h"
+#include "NanoServo.h"
 
 class NanoPlayBoardB: public NanoPlayBoard
 {
   public:
     NanoPlayBoardB();
     LedMatrixB ledmatrix;
+    NanoServo servo_right;
+    NanoServo servo_left;
 };
 
 #endif
