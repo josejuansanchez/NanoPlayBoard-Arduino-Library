@@ -17,8 +17,7 @@ class NanoPlayBoardB: public NanoPlayBoard
   public:
     NanoPlayBoardB();
     LedMatrixB ledmatrix;
-    NanoServo servo_right;
-    NanoServo servo_left;
+    NanoServo servo[2];
 };
 
 #endif
