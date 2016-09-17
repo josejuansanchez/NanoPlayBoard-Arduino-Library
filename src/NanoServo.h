@@ -16,7 +16,7 @@ class NanoServo
   public:
     NanoServo();
     NanoServo(uint8_t pin);
-    void write(uint8_t value);
+    void to(uint8_t degrees);
 
   private:
     uint8_t _pin;
