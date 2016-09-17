@@ -16,8 +16,7 @@
 #undef PIN_CLKOUT
 #define PIN_CLKOUT  4
 
-#define PIN_SERVO_RIGHT     5
-#define PIN_SERVO_LEFT      6
-
+#define PIN_SERVO_P3    5
+#define PIN_SERVO_P4    6
 
 #endif
