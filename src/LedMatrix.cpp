@@ -1,24 +1,24 @@
 /*
-  LedMatrixB.cpp - Library for the Arduino Nano PlayBoard
+  LedMatrix.cpp - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales and José Juan Sánchez, September, 2016.
   Released into the public domain.
 */
 
 #include "Arduino.h"
-#include "LedMatrixB.h"
+#include "LedMatrix.h"
 
-uint8_t LedMatrixB::_columnValues[5] = {128, 64, 32, 16, 8};
+uint8_t LedMatrix::_columnValues[5] = PIN_LEDMATRIX_VALUES;
 
-LedMatrixB::LedMatrixB() {}
+LedMatrix::LedMatrix() {}
 
-LedMatrixB::LedMatrixB(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
+LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
   _register = Register(dIn, clkIn, clkOut);
   _register.clear();
   _scrollSpeed = 10;
 }
 
-void LedMatrixB::print(char symbol)
+void LedMatrix::print(char symbol)
 {
   if ((symbol >= 0x20) & (symbol <=0x7e)) {
     for(uint8_t i = 0; i < 5; i++) {
@@ -35,7 +35,7 @@ void LedMatrixB::print(char symbol)
   }
 }
 
-void LedMatrixB::print(const byte pattern[5])
+void LedMatrix::print(const byte pattern[5])
 {
   for(uint8_t i = 0; i < 5; i++) {
     _register.write(_columnValues[i]);
@@ -44,7 +44,7 @@ void LedMatrixB::print(const byte pattern[5])
   }
 }
 
-void LedMatrixB::print(char message[])
+void LedMatrix::print(char message[])
 {
   byte pattern[5];
   for (uint8_t i = 0; i < (strlen(message)*5-4); i++) {
@@ -61,24 +61,24 @@ void LedMatrixB::print(char message[])
   }
 }
 
-void LedMatrixB::print(String message)
+void LedMatrix::print(String message)
 {
   char msgChar[256];
   message.toCharArray(msgChar, 256);
   print(msgChar);
 }
 
-void LedMatrixB::setScrollSpeed(uint8_t speed)
+void LedMatrix::setScrollSpeed(uint8_t speed)
 {
   _scrollSpeed = speed;
 }
 
-void LedMatrixB::clear()
+void LedMatrix::clear()
 {
   print(' ');
 }
 
-void LedMatrixB::printInLandscape(uint8_t number)
+void LedMatrix::printInLandscape(uint8_t number)
 {
   byte pattern[5];
   for(uint8_t i = 0; i < 5; i++) {

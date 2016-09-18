@@ -1,18 +1,18 @@
 /*
-  LedMatrix.cpp - Library for the Arduino Nano PlayBoard
+  LedMatrixA.cpp - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales, June, 2016.
   Contributions by José Juan Sánchez.
   Released into the public domain.
 */
 
 #include "Arduino.h"
-#include "LedMatrix.h"
+#include "LedMatrixA.h"
 
-uint8_t LedMatrix::_columnPins[5] = {2, 4, 5, 16, 17};
+uint8_t LedMatrixA::_columnPins[5] = PIN_LEDMATRIX_COLUMNS;
 
-LedMatrix::LedMatrix() {}
+LedMatrixA::LedMatrixA() {}
 
-LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
+LedMatrixA::LedMatrixA(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 {
   // Initialize the pins used for the columns as outputs
   for(uint8_t i = 0; i < 5; i++) {
@@ -32,7 +32,7 @@ LedMatrix::LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
 // A checking is needed to validate if the argument is inside the valid range.
 // If the argument is outside the range then a white space is displayed.
 //*************************************************************
-void LedMatrix::print(char symbol)
+void LedMatrixA::print(char symbol)
 {
   if ((symbol >= 0x20) & (symbol <=0x7e)) {
     for(uint8_t i = 0; i < 5; i++) {
@@ -52,7 +52,7 @@ void LedMatrix::print(char symbol)
 }
 
 // Display the pattern stored in the array of bytes
-void LedMatrix::print(const byte pattern[5])
+void LedMatrixA::print(const byte pattern[5])
 {
   for(uint8_t i = 0; i < 5; i++) {
     _register.write(pattern[i]);
@@ -63,7 +63,7 @@ void LedMatrix::print(const byte pattern[5])
 }
 
 // Display the message stored in the array of chars
-void LedMatrix::print(char message[])
+void LedMatrixA::print(char message[])
 {
   byte pattern[5];
   for (uint8_t i = 0; i < (strlen(message)*5-4); i++) {
@@ -81,24 +81,24 @@ void LedMatrix::print(char message[])
 }
 
 // Display the message stored in the String object
-void LedMatrix::print(String message)
+void LedMatrixA::print(String message)
 {
   char msgChar[256];
   message.toCharArray(msgChar, 256);
   print(msgChar);
 }
 
-void LedMatrix::setScrollSpeed(uint8_t speed)
+void LedMatrixA::setScrollSpeed(uint8_t speed)
 {
   _scrollSpeed = speed;
 }
 
-void LedMatrix::clear()
+void LedMatrixA::clear()
 {
   print(' ');
 }
 
-void LedMatrix::printInLandscape(uint8_t number)
+void LedMatrixA::printInLandscape(uint8_t number)
 {
   byte pattern[5];
   for(uint8_t i = 0; i < 5; i++) {

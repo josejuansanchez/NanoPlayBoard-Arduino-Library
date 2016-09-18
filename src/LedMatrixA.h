@@ -1,23 +1,24 @@
 /*
-  LedMatrix.h - Library for the Arduino Nano PlayBoard
+  LedMatrixA.h - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales, June, 2016.
   Contributions by José Juan Sánchez.
   Released into the public domain.
 */
 
-#ifndef LedMatrix_h
-#define LedMatrix_h
+#ifndef LedMatrixA_h
+#define LedMatrixA_h
 
 #include "Arduino.h"
 #include "Register.h"
 #include "Alphabet.h"
 #include "LandscapeNumbers.h"
+#include "PinsModelA.h"
 
-class LedMatrix
+class LedMatrixA
 {
   public:
-    LedMatrix();
-    LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
+    LedMatrixA();
+    LedMatrixA(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
     void clear();
     void print(char symbol);
     void print(const byte pattern[5]);
