@@ -1,29 +1,23 @@
 /*
-  NanoPlayBoard.h - Library for the Arduino Nano PlayBoard
-  Created by José Juan Sánchez, June 19, 2016.
+  NanoPlayBoardB.h - Library for the Arduino Nano PlayBoard
+  Created by José Juan Sánchez, September 15, 2016.
   Released into the public domain.
 */
 
-#ifndef NanoPlayBoard_h
-#define NanoPlayBoard_h
+#ifndef NanoPlayBoardB_h
+#define NanoPlayBoardB_h
 
-#include "Arduino.h"
-#include "Potentiometer.h"
-#include "RGB.h"  
-#include "LDR.h"
-#include "Buzzer.h"
-#include "LedMatrix.h"
-#include "PinsModelA.h"
+#include "NanoPlayBoard.h"
+#include "PinsModelB.h"
+#include "LedMatrixB.h"
+#include "NanoServo.h"
 
-class NanoPlayBoard
+class NanoPlayBoardB: public NanoPlayBoard
 {
   public:
-    NanoPlayBoard();
-    Potentiometer potentiometer;
-    RGB rgb;
-    LDR ldr;
-    Buzzer buzzer;
-    LedMatrix ledmatrix;
+    NanoPlayBoardB();
+    LedMatrixB ledmatrix;
+    NanoServo servo[2];
 };
 
 #endif

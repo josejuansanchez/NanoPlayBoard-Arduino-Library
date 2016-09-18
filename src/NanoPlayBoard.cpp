@@ -1,17 +1,17 @@
 /*
-  NanoPlayBoard.cpp - Library for the Arduino Nano PlayBoard
-  Created by José Juan Sánchez, June 19, 2016.
+  NanoPlayBoardB.cpp - Library for the Arduino Nano PlayBoard
+  Created by José Juan Sánchez, September 15, 2016.
   Released into the public domain.
 */
 
 #include "Arduino.h"
-#include "NanoPlayBoard.h"
+#include "NanoPlayBoardB.h"
 
-NanoPlayBoard::NanoPlayBoard()
+NanoPlayBoardB::NanoPlayBoardB()
 {
     potentiometer = Potentiometer(PIN_POT);
     ldr           = LDR(PIN_LDR);
-    buzzer        = Buzzer(PIN_BUZZER);
-    rgb           = RGB(PIN_R, PIN_G, PIN_B);
-    ledmatrix     = LedMatrix(PIN_DIN, PIN_CLKIN, PIN_CLKOUT);
+    ledmatrix     = LedMatrixB(PIN_DIN, PIN_CLKIN, PIN_CLKOUT);
+    servo[0]      = NanoServo(PIN_SERVO_P3);
+    servo[1]      = NanoServo(PIN_SERVO_P4);
 }
