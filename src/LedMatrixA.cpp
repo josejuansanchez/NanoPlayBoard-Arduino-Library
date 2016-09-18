@@ -8,24 +8,24 @@
 #include "Arduino.h"
 #include "LedMatrixA.h"
 
-uint8_t LedMatrixA::_columnPins[5] = PIN_LEDMATRIX_COLUMNS;
+uint8_t LedMatrixA::_column_pins[5] = PIN_LEDMATRIX_COLUMNS;
 
 LedMatrixA::LedMatrixA() {}
 
-LedMatrixA::LedMatrixA(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
+LedMatrixA::LedMatrixA(uint8_t data_in, uint8_t clock_in, uint8_t clock_out)
 {
   // Initialize the pins used for the columns as outputs
   for(uint8_t i = 0; i < 5; i++) {
-    pinMode(_columnPins[i], OUTPUT);
-    digitalWrite(_columnPins[i], LOW);
+    pinMode(_column_pins[i], OUTPUT);
+    digitalWrite(_column_pins[i], LOW);
   }
   
   // Initialize and clear the shift register
-  _register = Register(dIn, clkIn, clkOut);
+  _register = Register(data_in, clock_in, clock_out);
   _register.clear();
 
   // Initialize the text scroll speed used to display messages
-  _scrollSpeed = 10;
+  _scroll_speed = 10;
 }
 
 // Display the symbol passed as argument.
@@ -37,16 +37,16 @@ void LedMatrixA::print(char symbol)
   if ((symbol >= 0x20) & (symbol <=0x7e)) {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(pgm_read_byte(&ascii[symbol-0x20][i]));
-      digitalWrite(_columnPins[i], HIGH);
+      digitalWrite(_column_pins[i], HIGH);
       delay(2);
-      digitalWrite(_columnPins[i], LOW);
+      digitalWrite(_column_pins[i], LOW);
     }
   } else {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(pgm_read_byte(&ascii[0][i]));
-      digitalWrite(_columnPins[i], HIGH);
+      digitalWrite(_column_pins[i], HIGH);
       delay(2);
-      digitalWrite(_columnPins[i], LOW);
+      digitalWrite(_column_pins[i], LOW);
     }
   }
 }
@@ -56,9 +56,9 @@ void LedMatrixA::print(const byte pattern[5])
 {
   for(uint8_t i = 0; i < 5; i++) {
     _register.write(pattern[i]);
-    digitalWrite(_columnPins[i], HIGH);
+    digitalWrite(_column_pins[i], HIGH);
     delay(2);
-    digitalWrite(_columnPins[i], LOW);
+    digitalWrite(_column_pins[i], LOW);
   }
 }
 
@@ -74,7 +74,7 @@ void LedMatrixA::print(char message[])
     pattern[4] = pgm_read_byte(&ascii[message[(i+4)/5]-0x20][(i+4)%5]);
 
     // Display the pattern several times
-    for(uint8_t n = 0; n < _scrollSpeed; n++) {
+    for(uint8_t n = 0; n < _scroll_speed; n++) {
       print(pattern);
     }
   }
@@ -83,14 +83,14 @@ void LedMatrixA::print(char message[])
 // Display the message stored in the String object
 void LedMatrixA::print(String message)
 {
-  char msgChar[256];
-  message.toCharArray(msgChar, 256);
-  print(msgChar);
+  char msg_char[256];
+  message.toCharArray(msg_char, 256);
+  print(msg_char);
 }
 
 void LedMatrixA::setScrollSpeed(uint8_t speed)
 {
-  _scrollSpeed = speed;
+  _scroll_speed = speed;
 }
 
 void LedMatrixA::clear()

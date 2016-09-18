@@ -17,7 +17,7 @@ class LedMatrix
 {
   public:
     LedMatrix();
-    LedMatrix(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
+    LedMatrix(uint8_t data_in, uint8_t clock_in, uint8_t clock_out);
     void clear();
     void print(char symbol);
     void print(const byte pattern[5]);
@@ -27,9 +27,9 @@ class LedMatrix
     void printInLandscape(uint8_t number);
 
   private:
-    static uint8_t _columnValues[5];
+    static uint8_t _column_values[5];
     Register _register;
-    uint8_t _scrollSpeed;
+    uint8_t _scroll_speed;
 };
 
 #endif

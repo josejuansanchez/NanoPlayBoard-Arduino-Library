@@ -11,7 +11,7 @@ NanoPlayBoard::NanoPlayBoard()
 {
     potentiometer = Potentiometer(PIN_POT);
     ldr           = LDR(PIN_LDR);
-    ledmatrix     = LedMatrix(PIN_DIN, PIN_CLKIN, PIN_CLKOUT);
+    ledmatrix     = LedMatrix(PIN_DATA_IN, PIN_CLOCK_IN, PIN_CLOCK_OUT);
     servo[0]      = NanoServo(PIN_SERVO_1);
     servo[1]      = NanoServo(PIN_SERVO_2);
     servos        = NanoServos(PIN_SERVO_1, PIN_SERVO_2);

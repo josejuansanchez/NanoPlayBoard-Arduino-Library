@@ -9,20 +9,20 @@
 
 Register::Register() {}
 
-Register::Register(uint8_t dIn, uint8_t clkIn, uint8_t clkOut)
+Register::Register(uint8_t data_in, uint8_t clock_in, uint8_t clock_out)
 {
-    _dIn = dIn;
-    _clkIn = clkIn;
-    _clkOut = clkOut;
-    _baudRate = 9600;
-    _period = long(1000000/_baudRate);
+    _data_in = data_in;
+    _clock_in = clock_in;
+    _clock_out = clock_out;
+    _baudrate = 9600;
+    _period = long(1000000/_baudrate);
 
-    pinMode(_dIn, OUTPUT);
-    pinMode(_clkIn, OUTPUT);
-    pinMode(_clkOut, OUTPUT);
-    digitalWrite(_dIn, LOW);
-    digitalWrite(_clkIn, LOW);
-    digitalWrite(_clkOut, LOW);
+    pinMode(_data_in, OUTPUT);
+    pinMode(_clock_in, OUTPUT);
+    pinMode(_clock_out, OUTPUT);
+    digitalWrite(_data_in, LOW);
+    digitalWrite(_clock_in, LOW);
+    digitalWrite(_clock_out, LOW);
 
     clear();
 }
@@ -34,20 +34,20 @@ void Register::clear()
 
 void Register::write(byte data)
 {
-    digitalWrite(_clkIn, LOW);
-    digitalWrite(_clkOut, LOW);
+    digitalWrite(_clock_in, LOW);
+    digitalWrite(_clock_out, LOW);
 
     for(uint8_t k = 0; k < 8; k++) {
         delayMicroseconds(long(_period/4));
-        digitalWrite(_dIn,bitRead(data,k));
+        digitalWrite(_data_in,bitRead(data,k));
         delayMicroseconds(long(_period/4));
-        digitalWrite(_clkIn,HIGH);
+        digitalWrite(_clock_in,HIGH);
         delayMicroseconds(long(_period/2));
-        digitalWrite(_clkIn, LOW);
+        digitalWrite(_clock_in, LOW);
     }
 
     delayMicroseconds(int(_period/4));
-    digitalWrite(_clkOut, HIGH);
+    digitalWrite(_clock_out, HIGH);
     delayMicroseconds(long(_period/2));
-    digitalWrite(_clkOut, LOW);
+    digitalWrite(_clock_out, LOW);
 }

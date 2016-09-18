@@ -15,8 +15,8 @@ class LDR
     LDR();
     LDR(uint8_t pin);
     int read();
-    int scaleTo(int toLow, int toHigh);
-    int scaleTo(int fromLow, int fromHigh, int toLow, int toHigh);
+    int scaleTo(int to_low, int to_high);
+    int scaleTo(int from_low, int from_high, int to_low, int to_high);
 
   private:
     uint8_t _pin;

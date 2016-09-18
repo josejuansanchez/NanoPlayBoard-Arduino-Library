@@ -13,16 +13,16 @@ class Register
 {
   public:
     Register();
-    Register(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
+    Register(uint8_t data_in, uint8_t clock_in, uint8_t clock_out);
     void clear();
     void write(byte data);
 
   private:
-    uint8_t _dIn;             // Pin attached to the serial pin
-    uint8_t _clkIn;           // Pin attached to the shift clock
-    uint8_t _clkOut;          // Pin atrached to the latch clock
+    uint8_t _data_in;             // Pin attached to the serial pin
+    uint8_t _clock_in;           // Pin attached to the shift clock
+    uint8_t _clock_out;          // Pin atrached to the latch clock
     unsigned long _period;
-    unsigned int _baudRate;
+    unsigned int _baudrate;
 };
 
 #endif

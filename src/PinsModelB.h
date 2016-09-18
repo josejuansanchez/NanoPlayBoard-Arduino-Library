@@ -7,14 +7,14 @@
 #undef PIN_LDR
 #define PIN_LDR         A6
 
-#undef PIN_DIN
-#define PIN_DIN         12
+#undef PIN_DATA_IN
+#define PIN_DATA_IN     12
 
-#undef PIN_CLKIN
-#define PIN_CLKIN       13
+#undef PIN_CLOCK_IN
+#define PIN_CLOCK_IN    13
 
-#undef PIN_CLKOUT
-#define PIN_CLKOUT      4
+#undef PIN_CLOCK_OUT
+#define PIN_CLOCK_OUT   4
 
 #define PIN_SERVO_1     5
 #define PIN_SERVO_2     6

@@ -18,7 +18,7 @@ class LedMatrixA
 {
   public:
     LedMatrixA();
-    LedMatrixA(uint8_t dIn, uint8_t clkIn, uint8_t clkOut);
+    LedMatrixA(uint8_t data_in, uint8_t clock_in, uint8_t clock_out);
     void clear();
     void print(char symbol);
     void print(const byte pattern[5]);
@@ -28,9 +28,9 @@ class LedMatrixA
     void printInLandscape(uint8_t number);
 
   private:
-    static uint8_t _columnPins[5];    // Pins attached to the columns of the led matrix
+    static uint8_t _column_pins[5];    // Pins attached to the columns of the led matrix
     Register _register;
-    uint8_t _scrollSpeed;
+    uint8_t _scroll_speed;
 };
 
 #endif

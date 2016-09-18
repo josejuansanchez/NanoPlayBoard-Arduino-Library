@@ -7,9 +7,9 @@
 #define PIN_R           9
 #define PIN_G           10
 #define PIN_B           11
-#define PIN_DIN         13
-#define PIN_CLKIN       12
-#define PIN_CLKOUT      6
+#define PIN_DATA_IN     13
+#define PIN_CLOCK_IN    12
+#define PIN_CLOCK_OUT   6
 
 #define PIN_LEDMATRIX_COLUMNS   {2, 4, 5, 16, 17}
 
