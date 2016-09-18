@@ -8,7 +8,6 @@
 #define NanoServo_h
 
 #include "Arduino.h"
-#include "NanoServo.h"
 #include <Servo.h>
 
 class NanoServo
