@@ -21,10 +21,10 @@ class NanoServos
   public:
     NanoServos();
     NanoServos(uint8_t pin_right, uint8_t pin_left);
-    void forward();
-    void backward();
-    void right();
-    void left();
+    void goForward();
+    void goBackward();
+    void goRight();
+    void goLeft();
     void stop();
 
   private:
