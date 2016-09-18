@@ -14,4 +14,5 @@ NanoPlayBoard::NanoPlayBoard()
     ledmatrix     = LedMatrix(PIN_DIN, PIN_CLKIN, PIN_CLKOUT);
     servo[0]      = NanoServo(PIN_SERVO_1);
     servo[1]      = NanoServo(PIN_SERVO_2);
+    servos        = NanoServos(PIN_SERVO_1, PIN_SERVO_2);
 }

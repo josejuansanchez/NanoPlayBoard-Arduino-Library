@@ -11,6 +11,7 @@
 #include "PinsModelB.h"
 #include "LedMatrix.h"
 #include "NanoServo.h"
+#include "NanoServos.h"
 
 class NanoPlayBoard: public NanoPlayBoardA
 {
@@ -18,6 +19,7 @@ class NanoPlayBoard: public NanoPlayBoardA
     NanoPlayBoard();
     LedMatrix ledmatrix;
     NanoServo servo[2];
+    NanoServos servos;
 };
 
 #endif
