@@ -19,6 +19,9 @@
 #define PIN_SERVO_1     5
 #define PIN_SERVO_2     6
 
+#define PIN_HC148_A0    A0
+#define PIN_HC148_A1    A1
+
 #define PIN_LEDMATRIX_VALUES    {128, 64, 32, 16, 8}
 
 #endif
