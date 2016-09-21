@@ -13,6 +13,7 @@
 #include "NanoServo.h"
 #include "NanoServos.h"
 #include "Button.h"
+#include "RotaryEncoder.h"
 
 class NanoPlayBoard: public NanoPlayBoardA
 {
@@ -21,13 +22,16 @@ class NanoPlayBoard: public NanoPlayBoardA
     LedMatrix ledmatrix;
     NanoServo servo[2];
     NanoServos servos;
-
+    RotaryEncoder rotaryencoder;
+    
     struct {
       Button top;
       Button down;
       Button left;
       Button right;
     } buttons;
+
+
 };
 
 #endif
