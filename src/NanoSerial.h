@@ -1,7 +1,7 @@
 /*
   NanoSerial.h - Library for the Arduino Nano PlayBoard
   Created by José Juan Sánchez, September 16, 2016.
-  Released into the public domain.
+  Released under GNU GPL v3.
 */
 
 #ifndef NanoSerial_h

@@ -1,7 +1,7 @@
 /*
   Button.h - Library for the Arduino Nano PlayBoard
   Created by José Juan Sánchez, September 19, 2016.
-  Released into the public domain.
+  Released under GNU GPL v3.
 */
 
 #ifndef Button_h
