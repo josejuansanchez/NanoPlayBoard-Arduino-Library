@@ -21,11 +21,11 @@ int LDR::read()
 
 int LDR::scaleTo(int to_low, int to_high)
 {
-    return scaleTo(0, 1022, to_low, to_high);
+  return scaleTo(0, 1022, to_low, to_high);
 }
 
 int LDR::scaleTo(int from_low, int from_high, int to_low, int to_high)
 {
-    int value = read();
-    return map(value, from_low, from_high, to_low, to_high);
+  int value = read();
+  return map(value, from_low, from_high, to_low, to_high);
 }

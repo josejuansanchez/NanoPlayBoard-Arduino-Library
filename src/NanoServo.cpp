@@ -11,13 +11,13 @@ NanoServo::NanoServo() {}
 
 NanoServo::NanoServo(uint8_t pin)
 {
-    _pin = pin;
+  _pin = pin;
 }
 
 void NanoServo::to(uint8_t degrees)
 {
-    if (!servo.attached()) {
-        servo.attach(_pin);
-    }
-    servo.write(degrees);
+  if (!servo.attached()) {
+    servo.attach(_pin);
+  }
+  servo.write(degrees);
 }
