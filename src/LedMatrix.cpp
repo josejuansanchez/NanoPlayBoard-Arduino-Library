@@ -20,18 +20,14 @@ LedMatrix::LedMatrix(uint8_t data_in, uint8_t clock_in, uint8_t clock_out)
 
 void LedMatrix::print(char symbol)
 {
-  if ((symbol >= 0x20) & (symbol <=0x7e)) {
+  if (isPrintable(symbol)) {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(_column_values[i]);
       _register.write(pgm_read_byte(&ascii[symbol-0x20][i]));
       _register.write(0);
     }
   } else {
-    for(uint8_t i = 0; i < 5; i++) {
-      _register.write(_column_values[i]);
-      _register.write(pgm_read_byte(&ascii[0][i]));
-      _register.write(0);
-    }
+    print(' ');
   }
 }
 
@@ -85,4 +81,9 @@ void LedMatrix::printInLandscape(uint8_t number)
     pattern[i] = pgm_read_byte(&landscape_numbers[number][i]);
   }
   print(pattern);
+}
+
+bool LedMatrix::isPrintable(char symbol)
+{
+  return ((symbol >= 0x20) && (symbol <=0x7e));
 }

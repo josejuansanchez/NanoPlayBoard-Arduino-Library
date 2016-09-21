@@ -34,7 +34,7 @@ LedMatrixA::LedMatrixA(uint8_t data_in, uint8_t clock_in, uint8_t clock_out)
 //*************************************************************
 void LedMatrixA::print(char symbol)
 {
-  if ((symbol >= 0x20) & (symbol <=0x7e)) {
+  if (isPrintable(symbol)) {
     for(uint8_t i = 0; i < 5; i++) {
       _register.write(pgm_read_byte(&ascii[symbol-0x20][i]));
       digitalWrite(_column_pins[i], HIGH);
@@ -42,12 +42,7 @@ void LedMatrixA::print(char symbol)
       digitalWrite(_column_pins[i], LOW);
     }
   } else {
-    for(uint8_t i = 0; i < 5; i++) {
-      _register.write(pgm_read_byte(&ascii[0][i]));
-      digitalWrite(_column_pins[i], HIGH);
-      delay(2);
-      digitalWrite(_column_pins[i], LOW);
-    }
+    print(' ');
   }
 }
 
@@ -105,4 +100,9 @@ void LedMatrixA::printInLandscape(uint8_t number)
     pattern[i] = pgm_read_byte(&landscape_numbers[number][i]);
   }
   print(pattern);
+}
+
+bool LedMatrixA::isPrintable(char symbol)
+{
+  return ((symbol >= 0x20) && (symbol <=0x7e));
 }

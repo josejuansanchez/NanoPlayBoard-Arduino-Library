@@ -25,6 +25,7 @@ class LedMatrix
     void print(String message);
     void setScrollSpeed(uint8_t speed);
     void printInLandscape(uint8_t number);
+    bool isPrintable(char symbol);
 
   private:
     static uint8_t _column_values[5];
