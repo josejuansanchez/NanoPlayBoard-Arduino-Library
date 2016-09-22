@@ -9,13 +9,13 @@
 
 #include "Arduino.h"
 #include "PinsModelB.h"
-
 #include <SoftwareSerial.h>
 
 class Bluetooth: public SoftwareSerial
 {
   public:
     Bluetooth();
+    Bluetooth(uint8_t rx, uint8_t tx);
 };
 
 #endif
