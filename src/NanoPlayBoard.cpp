@@ -21,4 +21,5 @@ NanoPlayBoard::NanoPlayBoard()
   buttons.right = Button(PIN_HC148_A0, PIN_HC148_A1, RIGHT);
   rotaryencoder = RotaryEncoder(PIN_ROTARY_ENCODER_A, PIN_ROTARY_ENCODER_B);
   bluetooth     = Bluetooth();
+  ultrasound    = NewPing(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO);
 }

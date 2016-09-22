@@ -16,6 +16,9 @@
 #include "RotaryEncoder.h"
 #include "Bluetooth.h"
 
+#include "ThirdParty-NewPing.h"
+
+
 class NanoPlayBoard: public NanoPlayBoardA
 {
   public:
@@ -25,6 +28,7 @@ class NanoPlayBoard: public NanoPlayBoardA
     NanoServos servos;
     RotaryEncoder rotaryencoder;
     Bluetooth bluetooth;
+    NewPing ultrasound;
 
     struct {
       Button top;
