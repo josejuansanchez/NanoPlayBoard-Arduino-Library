@@ -25,6 +25,9 @@
 #define PIN_ROTARY_ENCODER_A    2
 #define PIN_ROTARY_ENCODER_B    A2
 
+#define PIN_BLUETOOTH_RX        0
+#define PIN_BLUETOOTH_TX        1
+
 #define PIN_LEDMATRIX_VALUES    {128, 64, 32, 16, 8}
 
 #endif
