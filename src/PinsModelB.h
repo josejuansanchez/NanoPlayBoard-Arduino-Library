@@ -28,6 +28,9 @@
 #define PIN_BLUETOOTH_RX        0
 #define PIN_BLUETOOTH_TX        1
 
+#define PIN_SONAR_TRIGGER       8
+#define PIN_SONAR_ECHO          7
+
 #define PIN_LEDMATRIX_VALUES    {128, 64, 32, 16, 8}
 
 #endif
