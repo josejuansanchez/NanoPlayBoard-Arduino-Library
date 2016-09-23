@@ -7,8 +7,10 @@
 #ifndef NanoPlayBoard_h
 #define NanoPlayBoard_h
 
-#include "NanoPlayBoardA.h"
-#include "PinsModelB.h"
+#include "Potentiometer.h"
+#include "RGB.h"
+#include "LDR.h"
+#include "Buzzer.h"
 #include "LedMatrix.h"
 #include "NanoServo.h"
 #include "NanoServos.h"
@@ -18,11 +20,25 @@
 #include "MMA7660FC.h"
 #include <SoftwareSerial.h>
 
-class NanoPlayBoard: public NanoPlayBoardA
+#define BOARD_MODEL_B
+
+#ifdef BOARD_MODEL_B
+  #include "PinsModelB.h"
+#else
+  #include "PinsModelA.h"
+#endif
+
+class NanoPlayBoard
 {
   public:
     NanoPlayBoard();
+    Potentiometer potentiometer;
+    RGB rgb;
+    LDR ldr;
+    Buzzer buzzer;
     LedMatrix ledmatrix;
+
+  #ifdef BOARD_MODEL_B
     NanoServo servo[2];
     NanoServos servos;
     RotaryEncoder rotaryencoder;
@@ -36,6 +52,7 @@ class NanoPlayBoard: public NanoPlayBoardA
       Button left;
       Button right;
     } buttons;
+  #endif
 };
 
 #endif

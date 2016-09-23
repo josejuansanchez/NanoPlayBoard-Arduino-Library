@@ -7,11 +7,15 @@
 #include "Arduino.h"
 #include "NanoPlayBoard.h"
 
+#ifdef BOARD_MODEL_B
+
 NanoPlayBoard::NanoPlayBoard():
   bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX)
 {
   potentiometer = Potentiometer(PIN_POT);
   ldr           = LDR(PIN_LDR);
+  buzzer        = Buzzer(PIN_BUZZER);
+  rgb           = RGB(PIN_R, PIN_G, PIN_B);
   ledmatrix     = LedMatrix(PIN_DATA_IN, PIN_CLOCK_IN, PIN_CLOCK_OUT);
   servo[0]      = NanoServo(PIN_SERVO_1);
   servo[1]      = NanoServo(PIN_SERVO_2);
@@ -25,3 +29,16 @@ NanoPlayBoard::NanoPlayBoard():
 
   bluetooth.begin(9600);
 }
+
+#else
+
+NanoPlayBoard::NanoPlayBoard()
+{
+  potentiometer = Potentiometer(PIN_POT);
+  ldr           = LDR(PIN_LDR);
+  buzzer        = Buzzer(PIN_BUZZER);
+  rgb           = RGB(PIN_R, PIN_G, PIN_B);
+  //ledmatrix     = LedMatrixA(PIN_DATA_IN, PIN_CLOCK_IN, PIN_CLOCK_OUT);
+}
+
+#endif
