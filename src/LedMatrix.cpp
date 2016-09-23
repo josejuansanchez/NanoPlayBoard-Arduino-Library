@@ -7,7 +7,7 @@
 #include "Arduino.h"
 #include "LedMatrix.h"
 
-uint8_t LedMatrix::_column_values[5] = PIN_LEDMATRIX_VALUES;
+uint8_t LedMatrix::_column_values[5] = {128, 64, 32, 16, 8};
 
 LedMatrix::LedMatrix() {}
 
