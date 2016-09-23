@@ -9,7 +9,6 @@
 #include "Arduino.h"
 #include "RotaryEncoder.h"
 
-uint8_t RotaryEncoder::_pin_a;
 uint8_t RotaryEncoder::_pin_b;
 long RotaryEncoder::_position = 0;
 
