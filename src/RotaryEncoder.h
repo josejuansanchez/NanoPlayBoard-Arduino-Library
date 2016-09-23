@@ -1,5 +1,5 @@
 /*
-  RotaryEncoder.h - Library for the Arduino Nano PlayBoard
+  RotaryEncoder.h - Library for the Arduino NanoPlayBoard
   Created by José Juan Sánchez, September 21, 2016.
   Released under GNU GPL v3.
 */
@@ -20,7 +20,7 @@ class RotaryEncoder
     static void handleInterrupt();
 
   private:
-    static uint8_t _pin_a;
+    uint8_t _pin_a;
     static uint8_t _pin_b;
     static long _position;
 };

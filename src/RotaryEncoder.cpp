@@ -1,9 +1,9 @@
 /*
-  RotaryEncoder.cpp - Library for the Arduino Nano PlayBoard
+  RotaryEncoder.cpp - Library for the Arduino NanoPlayBoard
   Created by José Juan Sánchez, September 21, 2016.
   Released under GNU GPL v3.
 
-  Reference: http://playground.arduino.cc/Main/RotaryEncoders  
+  Reference: http://playground.arduino.cc/Main/RotaryEncoders
 */
 
 #include "Arduino.h"
@@ -20,7 +20,7 @@ RotaryEncoder::RotaryEncoder(uint8_t pin_a, uint8_t pin_b)
   _pin_a = pin_a;
   _pin_b = pin_b;
 
-  attachInterrupt(digitalPinToInterrupt(_pin_a), handleInterrupt, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(_pin_a), handleInterrupt, RISING);
 
   pinMode(_pin_a, INPUT);
   pinMode(_pin_b, INPUT);
@@ -33,7 +33,7 @@ long RotaryEncoder::getPosition()
 
 static void RotaryEncoder::handleInterrupt()
 {
-  if (digitalRead(_pin_a) == digitalRead(_pin_b)) {
+  if (digitalRead(_pin_b)) {
     _position--;
   } else {
     _position++;
