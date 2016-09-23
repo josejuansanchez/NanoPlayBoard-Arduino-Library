@@ -7,7 +7,8 @@
 #include "Arduino.h"
 #include "NanoPlayBoard.h"
 
-NanoPlayBoard::NanoPlayBoard()
+NanoPlayBoard::NanoPlayBoard():
+  bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX)
 {
   potentiometer = Potentiometer(PIN_POT);
   ldr           = LDR(PIN_LDR);
@@ -20,6 +21,7 @@ NanoPlayBoard::NanoPlayBoard()
   buttons.left  = Button(PIN_HC148_A0, PIN_HC148_A1, LEFT);
   buttons.right = Button(PIN_HC148_A0, PIN_HC148_A1, RIGHT);
   rotaryencoder = RotaryEncoder(PIN_ROTARY_ENCODER_A, PIN_ROTARY_ENCODER_B);
-  bluetooth     = Bluetooth();
   ultrasound    = NewPing(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO);
+
+  bluetooth.begin(9600);
 }

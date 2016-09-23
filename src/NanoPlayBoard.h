@@ -14,9 +14,8 @@
 #include "NanoServos.h"
 #include "Button.h"
 #include "RotaryEncoder.h"
-#include "Bluetooth.h"
 #include "NewPing.h"
-
+#include <SoftwareSerial.h>
 
 class NanoPlayBoard: public NanoPlayBoardA
 {
@@ -26,7 +25,7 @@ class NanoPlayBoard: public NanoPlayBoardA
     NanoServo servo[2];
     NanoServos servos;
     RotaryEncoder rotaryencoder;
-    Bluetooth bluetooth;
+    SoftwareSerial bluetooth;
     NewPing ultrasound;
 
     struct {
@@ -35,8 +34,6 @@ class NanoPlayBoard: public NanoPlayBoardA
       Button left;
       Button right;
     } buttons;
-
-
 };
 
 #endif
