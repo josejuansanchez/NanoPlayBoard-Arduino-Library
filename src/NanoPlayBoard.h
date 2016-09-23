@@ -15,6 +15,7 @@
 #include "Button.h"
 #include "RotaryEncoder.h"
 #include "NewPing.h"
+#include "MMA7660FC.h"
 #include <SoftwareSerial.h>
 
 class NanoPlayBoard: public NanoPlayBoardA
@@ -27,6 +28,7 @@ class NanoPlayBoard: public NanoPlayBoardA
     RotaryEncoder rotaryencoder;
     SoftwareSerial bluetooth;
     NewPing ultrasound;
+    MMA7660FC accelerometer;
 
     struct {
       Button top;
