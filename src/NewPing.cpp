@@ -5,7 +5,7 @@
 // See "NewPing.h" for purpose, syntax, version history, links, and more.
 // ---------------------------------------------------------------------------
 
-#include "ThirdParty-NewPing.h"
+#include "NewPing.h"
 
 
 // ---------------------------------------------------------------------------

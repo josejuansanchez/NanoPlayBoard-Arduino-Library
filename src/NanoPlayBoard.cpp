@@ -7,7 +7,7 @@
 #include "Arduino.h"
 #include "NanoPlayBoard.h"
 
-NanoPlayBoard::NanoPlayBoard():
+NanoPlayBoard::NanoPlayBoard()
 {
   potentiometer = Potentiometer(PIN_POT);
   ldr           = LDR(PIN_LDR);
