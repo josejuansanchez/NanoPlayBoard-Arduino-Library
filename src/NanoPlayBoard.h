@@ -1,5 +1,5 @@
 /*
-  NanoPlayBoard.h - Library for the Arduino Nano PlayBoard
+  NanoPlayBoard.h - Library for the Arduino NanoPlayBoard
   Created by José Juan Sánchez, September 15, 2016.
   Released under GNU GPL v3.
 */
@@ -15,8 +15,7 @@
 #include "Button.h"
 #include "RotaryEncoder.h"
 #include "Bluetooth.h"
-
-#include "ThirdParty-NewPing.h"
+#include "NewPing.h"
 
 
 class NanoPlayBoard: public NanoPlayBoardA
