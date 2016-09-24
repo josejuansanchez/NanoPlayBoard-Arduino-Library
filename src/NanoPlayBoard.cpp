@@ -20,10 +20,10 @@ NanoPlayBoard::NanoPlayBoard():
   servo[0]      = NanoServo(PIN_SERVO_1);
   servo[1]      = NanoServo(PIN_SERVO_2);
   servos        = NanoServos(PIN_SERVO_1, PIN_SERVO_2);
-  buttons.top   = Button(PIN_HC148_A0, PIN_HC148_A1, TOP);
-  buttons.down  = Button(PIN_HC148_A0, PIN_HC148_A1, DOWN);
-  buttons.left  = Button(PIN_HC148_A0, PIN_HC148_A1, LEFT);
-  buttons.right = Button(PIN_HC148_A0, PIN_HC148_A1, RIGHT);
+  buttons.top   = Button(PIN_HC148_A0, PIN_HC148_A1, BUTTON_TOP);
+  buttons.down  = Button(PIN_HC148_A0, PIN_HC148_A1, BUTTON_DOWN);
+  buttons.left  = Button(PIN_HC148_A0, PIN_HC148_A1, BUTTON_LEFT);
+  buttons.right = Button(PIN_HC148_A0, PIN_HC148_A1, BUTTON_RIGHT);
   rotaryencoder = RotaryEncoder(PIN_ROTARY_ENCODER_A, PIN_ROTARY_ENCODER_B);
   ultrasound    = NewPing(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO);
 
