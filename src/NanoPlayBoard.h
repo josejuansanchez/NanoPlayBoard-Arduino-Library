@@ -7,6 +7,7 @@
 #ifndef NanoPlayBoard_h
 #define NanoPlayBoard_h
 
+#include "Configuration.h"
 #include "Potentiometer.h"
 #include "RGB.h"
 #include "LDR.h"
@@ -19,14 +20,6 @@
 #include "NewPing.h"
 #include "MMA7660FC.h"
 #include <SoftwareSerial.h>
-
-#define BOARD_MODEL_B
-
-#ifdef BOARD_MODEL_B
-  #include "PinsModelB.h"
-#else
-  #include "PinsModelA.h"
-#endif
 
 class NanoPlayBoard
 {

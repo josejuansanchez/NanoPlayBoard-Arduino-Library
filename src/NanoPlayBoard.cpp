@@ -38,7 +38,7 @@ NanoPlayBoard::NanoPlayBoard()
   ldr           = LDR(PIN_LDR);
   buzzer        = Buzzer(PIN_BUZZER);
   rgb           = RGB(PIN_R, PIN_G, PIN_B);
-  //ledmatrix     = LedMatrixA(PIN_DATA_IN, PIN_CLOCK_IN, PIN_CLOCK_OUT);
+  ledmatrix     = LedMatrix(PIN_DATA_IN, PIN_CLOCK_IN, PIN_CLOCK_OUT);
 }
 
 #endif

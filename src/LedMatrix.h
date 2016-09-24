@@ -11,6 +11,7 @@
 #include "Register.h"
 #include "Alphabet.h"
 #include "LandscapeNumbers.h"
+#include "Configuration.h"
 
 class LedMatrix
 {
@@ -27,9 +28,14 @@ class LedMatrix
     bool isPrintable(char symbol);
 
   private:
-    static uint8_t _column_values[5];
     Register _register;
     uint8_t _scroll_speed;
+
+    #ifdef BOARD_MODEL_B
+      static uint8_t _column_values[5];
+    #else
+      static uint8_t _column_pins[5];
+    #endif
 };
 
 #endif
