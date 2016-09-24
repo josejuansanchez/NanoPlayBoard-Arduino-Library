@@ -10,7 +10,8 @@
 #ifdef BOARD_MODEL_B
 
 NanoPlayBoard::NanoPlayBoard():
-  bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX)
+  bluetooth(PIN_BLUETOOTH_RX, PIN_BLUETOOTH_TX),
+  dht(PIN_DHT, DHT_TYPE)
 {
   potentiometer = Potentiometer(PIN_POT);
   ldr           = LDR(PIN_LDR);
@@ -28,6 +29,7 @@ NanoPlayBoard::NanoPlayBoard():
   ultrasound    = NewPing(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO);
 
   bluetooth.begin(9600);
+  dht.begin();
 }
 
 #else

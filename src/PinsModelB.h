@@ -20,5 +20,6 @@
 #define PIN_BLUETOOTH_TX        1
 #define PIN_SONAR_TRIGGER       8
 #define PIN_SONAR_ECHO          7
+#define PIN_DHT                 A3
 
 #endif

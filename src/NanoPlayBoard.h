@@ -19,6 +19,9 @@
 #include "RotaryEncoder.h"
 #include "NewPing.h"
 #include "MMA7660FC.h"
+#include "Adafruit_Sensor.h"
+#include "DHT.h"
+#include "DHT_U.h"
 #include <SoftwareSerial.h>
 
 class NanoPlayBoard
@@ -38,6 +41,7 @@ class NanoPlayBoard
     SoftwareSerial bluetooth;
     NewPing ultrasound;
     MMA7660FC accelerometer;
+    DHT_Unified dht;
 
     struct {
       Button top;
