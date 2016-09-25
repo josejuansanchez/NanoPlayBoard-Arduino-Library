@@ -101,9 +101,9 @@ class MMA7660FC {
     bool setStandbyMode();
     bool setMode(const uint8_t &mode);
     bool getMode(uint8_t &mode);
-    uint8_t getX();
-    uint8_t getY();
-    uint8_t getZ();
+    float getX();
+    float getY();
+    float getZ();
     bool isFront();
     bool isBack();
     bool isUp();
@@ -121,9 +121,18 @@ class MMA7660FC {
     uint8_t _modeR = 0;
     uint8_t _interruptR = 0;
     uint8_t _BaFro = 0;
+    uint8_t _PoLa = 0;
+    const float _XYAngles[21] = {2.69, 5.38, 8.08, 10.81, 13.55, 16.33, 19.16, 22.02, 24.95, 27.95, 31.04,
+                                34.23, 37.54, 41.01, 44.68, 48.69, 52.83, 57.54, 62.95, 69.64, 79.86};
+    const float _ZAngles[21] = {87.31, 84.62, 81.92, 79.19, 76.45, 73.67, 70.84, 67.98, 65.05, 62.05, 58.96,
+                                55.77, 52.46, 48.99, 45.32, 41.41, 37.17, 32.46, 27.05, 20.36, 10.14};
+
     void _CPUSlowDown(int fac);
     bool _readRegister(const uint8_t &regRead, uint8_t &data);
     bool _writeRegister(const uint8_t &regWritten, const uint8_t &data);
+    int _get2sComplement(uint8_t value);
+    float _getAngleXY(int value);
+    float _getAngleZ(int value);
 };
 
 #endif
