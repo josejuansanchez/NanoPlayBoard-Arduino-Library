@@ -75,52 +75,73 @@ bool MMA7660FC::init(){
   return 1;
 }
 
-uint8_t MMA7660FC::getX(){
+float MMA7660FC::getX(){
+  int count = 0;
+  do {
     if(!_readRegister(XOUT, _byteRead)) return 0;
-    if(bitRead(_byteRead,6)) return 0;
-    else return (_byteRead & 0x3F);
+  } while (bitRead(_byteRead,6) && count <= 3);
+  if(count >= 5) return 0;
+  else return _getAngleXY(_get2sComplement(_byteRead & 0x3F));
 }
 
-uint8_t MMA7660FC::getY(){
-  if(!_readRegister(YOUT, _byteRead)) return 0;
-  if(bitRead(_byteRead,6)) return 0;
-  else return (_byteRead & 0x3F);
+float MMA7660FC::getY(){
+  int count = 0;
+  do {
+    if(!_readRegister(YOUT, _byteRead)) return 0;
+  } while (bitRead(_byteRead,6) && count <= 3);
+  if(count >= 5) return 0;
+  else return _getAngleXY(_get2sComplement(_byteRead & 0x3F));
 }
 
-uint8_t MMA7660FC::getZ(){
-  if(!_readRegister(ZOUT, _byteRead)) return 0;
-  if(bitRead(_byteRead,6)) return 0;
-  else return (_byteRead & 0x3F);
+float MMA7660FC::getZ(){
+  int count = 0;
+  do {
+    if(!_readRegister(ZOUT, _byteRead)) return 0;
+  } while (bitRead(_byteRead,6) && count <= 3);
+  if(count >= 5) return 0;
+  else return _getAngleZ(_get2sComplement(_byteRead & 0x3F));
 }
 
 bool MMA7660FC::isFront(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _BaFro = bitRead(_byteRead,1) * bit(1) + bitRead(_byteRead,0) * bit(0);
-  if (_BaFro != 0x01) return 0;
+  if (_BaFro != B01) return 0;
   return 1;
   }
 
 bool MMA7660FC::isBack(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _BaFro = bitRead(_byteRead,1) * bit(1) + bitRead(_byteRead,0) * bit(0);
-  if (_BaFro != 0x10) return 0;
+  if (_BaFro != B10) return 0;
   return 1;
 }
 
 bool MMA7660FC::isUp(){
-    return 0;
+  if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
+  _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
+  if (_PoLa != B110) return 0;
+  return 1;
 }
 
 bool MMA7660FC::isDown(){
-    return 0;
+  if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
+  _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
+  if (_PoLa != B101) return 0;
+  return 1;
 }
 
 bool MMA7660FC::isLeft(){
-    return 0;
+  if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
+  _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
+  if (_PoLa != B001) return 0;
+  return 1;
 }
 
 bool MMA7660FC::isRight(){
-    return 0;
+  if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
+  _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
+  if (_PoLa != B010) return 0;
+  return 1;
 }
 
 bool MMA7660FC::enableInterrupts(const uint8_t &interrutp){
@@ -306,36 +327,42 @@ bool MMA7660FC::disableInterrupts(const uint8_t &interrutp){
 }
 
 bool MMA7660FC::enableAutoSleep(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR |= 0x10;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
 }
 
 bool MMA7660FC::disableAutoSleep(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR &= 0xEF;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
 }
 
 bool MMA7660FC::enableAutoWake(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR |= 0x08;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
 }
 
 bool MMA7660FC::disableAutoWake(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR &= 0xF7;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
 }
 
 bool MMA7660FC::setActiveMode(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR |= 0x01;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
 }
 
 bool MMA7660FC::setStandbyMode(){
+  if(!_readRegister(MODE, _modeR)) return 0;
   _modeR &= 0xFE;
   if(!_writeRegister(MODE, _modeR)) return 0;
   return 1;
@@ -418,4 +445,23 @@ void MMA7660FC::_CPUSlowDown(int fac) {
   // slow down processor by a fac
   CLKPR = _BV(CLKPCE);
   CLKPR = _BV(CLKPS1) | _BV(CLKPS0);
+}
+
+int MMA7660FC::_get2sComplement(uint8_t value){
+  if (!bitRead(value, 5)) return value;
+  else return (-64-(~value+1));
+}
+
+float MMA7660FC::_getAngleXY(int value){
+  if (value == 0) return float(0);
+  else if (value >= 1 && value <=21) return float(_XYAngles[value-1]);
+  else if (value >= -21 && value <=-1) return float(-_XYAngles[-value-1]);
+  else return float(0);
+}
+
+float MMA7660FC::_getAngleZ(int value){
+  if (value == 0) return float(90);
+  else if (value >= 1 && value <=21) return float(_ZAngles[value-1]);
+  else if (value >= -21 && value <=-1) return float(-_ZAngles[-value-1]);
+  else return float(0);
 }
