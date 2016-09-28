@@ -28,7 +28,7 @@ NanoPlayBoard::NanoPlayBoard():
   rotaryencoder = RotaryEncoder(PIN_ROTARY_ENCODER_A, PIN_ROTARY_ENCODER_B);
   ultrasound    = NewPing(PIN_SONAR_TRIGGER, PIN_SONAR_ECHO);
 
-  bluetooth.begin(9600);
+  //bluetooth.begin(9600);
   dht.begin();
 }
 
