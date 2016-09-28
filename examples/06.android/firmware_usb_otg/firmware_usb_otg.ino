@@ -43,7 +43,6 @@ int getSketchId() {
 
   if (!root.success()) {
     Serial.println("{\"error\": \"Error parsing json message\"}");
-    Serial.println(json);
     return -1;
   }
 
