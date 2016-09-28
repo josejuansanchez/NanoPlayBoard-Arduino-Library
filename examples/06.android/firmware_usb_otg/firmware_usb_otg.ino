@@ -2,23 +2,34 @@
 #include <NanoPlayBoard.h>
 
 NanoPlayBoard board;
+String json;
+int sketchId = -1;
+
+//---------------------------------
+
+// Functions definition
+int getSketchId();
+void runSketch();
+void loadPotentiometerSketch();
+void loadLDRSketch();
+void loadRGBSketch();
+void loadBuzzerSketch();
+void loadLedMatrixPatternSketch();
+void loadLedMatrixSketch();
+
+//---------------------------------
 
 void setup() {
   Serial.begin(115200);
 }
 
-String json;
-int sketchId;
-
 void loop() {
-  sketchId = getSketchId();
+  runSketch();
+}
 
-  while(1) {
-    runSketch();
-    //json = "";
-    int newSketchId = getSketchId();
-    if (newSketchId != -1) sketchId = newSketchId;
-  }
+void serialEvent() {
+  int newSketchId = getSketchId();
+  if (newSketchId != -1) sketchId = newSketchId;
 }
 
 //---------------------------------
@@ -32,6 +43,7 @@ int getSketchId() {
 
   if (!root.success()) {
     Serial.println("{\"error\": \"Error parsing json message\"}");
+    Serial.println(json);
     return -1;
   }
 
