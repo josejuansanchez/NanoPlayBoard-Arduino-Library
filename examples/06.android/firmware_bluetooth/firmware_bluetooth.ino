@@ -1,28 +1,44 @@
-#include <SoftwareSerial.h>
-
-SoftwareSerial btSerial(7, 8); // RX, TX
-
 #include <ArduinoJson.h>
 #include <NanoPlayBoard.h>
+#include <SoftwareSerial.h>
+
+// NanoPlayBoard 0.1
+//SoftwareSerial btSerial(7, 8); // RX, TX
+
+// NanoPlayBoard Rev-0.2
+SoftwareSerial btSerial(0, 1); // RX, TX
 
 NanoPlayBoard board;
+String json;
+int sketchId = -1;
+
+//---------------------------------
+
+// Functions definition
+void btSerialEvent();
+int getSketchId();
+void runSketch();
+void loadPotentiometerSketch();
+void loadLDRSketch();
+void loadRGBSketch();
+void loadBuzzerSketch();
+void loadLedMatrixPatternSketch();
+void loadLedMatrixSketch();
+
+//---------------------------------
 
 void setup() {
   btSerial.begin(9600);
 }
 
-String json;
-int sketchId;
-
 void loop() {
-  sketchId = getSketchId();
+  btSerialEvent();
+  runSketch();
+}
 
-  while(1) {
-    runSketch();
-    //json = "";
-    int newSketchId = getSketchId();
-    if (newSketchId != -1) sketchId = newSketchId;
-  }
+void btSerialEvent() {
+  int newSketchId = getSketchId();
+  if (newSketchId != -1) sketchId = newSketchId;
 }
 
 //---------------------------------
@@ -36,8 +52,6 @@ int getSketchId() {
 
   if (!root.success()) {
     btSerial.println("{\"error\": \"Error parsing json message\"}");
-    // TEST
-    btSerial.println(json);
     return -1;
   }
 
