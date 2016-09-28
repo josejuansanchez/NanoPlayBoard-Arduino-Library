@@ -66,10 +66,9 @@ void serialEvent() {
 
 int getSketchId() {
   if (Serial.available() <= 0) return -1;
-  //String json = Serial.readStringUntil('\n');
   json = Serial.readStringUntil('\n');
-  StaticJsonBuffer<200> jsonBuffer;  
-  JsonObject& root = jsonBuffer.parseObject(json);
+  StaticJsonBuffer<200> json_buffer;
+  JsonObject& root = json_buffer.parseObject(json);
 
   if (!root.success()) {
     Serial.println("{\"error\": \"Error parsing json message\"}");
