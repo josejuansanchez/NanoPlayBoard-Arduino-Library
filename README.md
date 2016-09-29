@@ -131,11 +131,11 @@ board.ledmatrix.print("H o l a  m u n d o!");
 board.ledmatrix.setScrollSpeed(10);
 board.ledmatrix.print("H o l a  m u n d o!");
 ```
-The library allows you to control the scroll speed that is used to display the text in the led matrix.
+The library allows you to control the scroll speed that is used to display the text on the led matrix.
 
 * printInLandscape
 ```c++
-board.ledmatrix.printInLandscpe(99);
+board.ledmatrix.printInLandscape(99);
 ```
 
 ## Credits
