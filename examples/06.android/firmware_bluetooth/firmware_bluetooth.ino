@@ -9,8 +9,8 @@
 SoftwareSerial btSerial(0, 1); // RX, TX
 
 NanoPlayBoard board;
+int message_id;
 String json;
-int sketch_id;
 
 int last_pot_value = -1;
 int last_ldr_value = -1;
@@ -41,8 +41,8 @@ int last_ldr_value = -1;
 
 // Functions definition
 void btSerialEvent();
-int getSketchId();
-void runSketch();
+int getMessageId();
+void doMessageAction();
 void potentiometerRead();
 void potentiometerScaleTo();
 void ldrRead();
@@ -63,17 +63,17 @@ void setup() {
 
 void loop() {
   btSerialEvent();
-  runSketch();
+  doMessageAction();
 }
 
 void btSerialEvent() {
-  int new_sketch_id = getSketchId();
-  if (new_sketch_id != -1) sketch_id = new_sketch_id;
+  int new_message_id = getMessageId();
+  if (new_message_id != -1) message_id = new_message_id;
 }
 
 //---------------------------------
 
-int getSketchId() {
+int getMessageId() {
   if (btSerial.available() <= 0) return -1;
   json = btSerial.readStringUntil('\n');
   StaticJsonBuffer<200> json_buffer;
@@ -89,8 +89,8 @@ int getSketchId() {
 
 //---------------------------------
 
-void runSketch() {
-  switch(sketch_id) {
+void doMessageAction() {
+  switch(message_id) {
     case ID_POTENTIOMETER_READ:
       potentiometerRead();
       break;
@@ -117,7 +117,7 @@ void runSketch() {
 
     case ID_RGB_TOGGLE:
       rgbToggle();
-      sketch_id = -1;
+      message_id = -1;
       break;
 
     case ID_RGB_SET_COLOR:
@@ -126,7 +126,7 @@ void runSketch() {
 
     case ID_BUZZER_PLAY_TONE:
       buzzerPlayTone();
-      sketch_id = -1;
+      message_id = -1;
       break;
 
     case ID_LEDMATRIX_PRINT_PATTERN:
@@ -154,7 +154,7 @@ void potentiometerRead() {
 
   // Bluetooth is waiting "\r\n"
   btSerial.println("");
-  delay(50);
+  delay(30);
 }
 
 //---------------------------------
@@ -185,7 +185,7 @@ void potentiometerScaleTo() {
 
   // Bluetooth is waiting "\r\n"
   btSerial.println("");
-  delay(50);
+  delay(30);
 }
 
 //---------------------------------
@@ -203,7 +203,7 @@ void ldrRead() {
 
   // Bluetooth is waiting "\r\n"
   btSerial.println("");
-  delay(50);
+  delay(30);
 }
 
 //---------------------------------
@@ -234,7 +234,7 @@ void ldrScaleTo() {
 
   // Bluetooth is waiting "\r\n"
   btSerial.println("");
-  delay(50);
+  delay(30);
 }
 
 //---------------------------------
