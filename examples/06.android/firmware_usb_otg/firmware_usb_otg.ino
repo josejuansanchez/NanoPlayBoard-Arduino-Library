@@ -142,6 +142,8 @@ void potentiometerRead() {
   JsonObject& root = json_buffer.createObject();
   root["potentiometer"] = pot_value;
   root.printTo(Serial);
+
+  delay(30);
 }
 
 //---------------------------------
@@ -169,6 +171,8 @@ void potentiometerScaleTo() {
   JsonObject& root_out = json_buffer_out.createObject();
   root_out["potentiometer"] = pot_value;
   root_out.printTo(Serial);
+
+  delay(30);
 }
 
 //---------------------------------
@@ -183,6 +187,8 @@ void ldrRead() {
   JsonObject& root = json_buffer.createObject();
   root["ldr"] = ldr_value;
   root.printTo(Serial);
+
+  delay(30);
 }
 
 //---------------------------------
@@ -210,6 +216,8 @@ void ldrScaleTo() {
   JsonObject& root_out = json_buffer_out.createObject();
   root_out["ldr"] = ldr_value;
   root_out.printTo(Serial);
+
+  delay(30);
 }
 
 //---------------------------------
