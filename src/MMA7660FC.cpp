@@ -75,12 +75,53 @@ bool MMA7660FC::init(){
   return 1;
 }
 
+bool MMA7660FC::setSamplesPerSecond(const uint8_t &samples){
+
+  switch (samples) {
+    case 1:
+      _AMSR = B111;
+      break;
+    case 2:
+      _AMSR = B110;
+      break;
+    case 4:
+      _AMSR = B101;
+      break;
+    case 8:
+      _AMSR = B100;
+      break;
+    case 16:
+      _AMSR = B011;
+      break;
+    case 32:
+      _AMSR = B010;
+      break;
+    case 64:
+      _AMSR = B001;
+      break;
+    case 120:
+      _AMSR = B000;
+      break;
+    default:
+      return 0;
+  }
+
+  if(!setStandbyMode()) return 0;
+  if(!_readRegister(SR, _byteRead)) return 0;
+  for(int k=0; k<=2; k++) bitWrite(_byteRead, k, bitRead(_AMSR, k));
+  if(!_writeRegister(SR, _byteRead)) return 0;
+  setActiveMode();
+  return 1;
+
+}
+
 float MMA7660FC::getX(){
   int count = 0;
   do {
     if(!_readRegister(XOUT, _byteRead)) return 0;
+    count++;
   } while (bitRead(_byteRead,6) && count <= 3);
-  if(count >= 5) return 0;
+  if(count >= 4) return 0;
   else return _getAngleXY(_get2sComplement(_byteRead & 0x3F));
 }
 
@@ -88,8 +129,9 @@ float MMA7660FC::getY(){
   int count = 0;
   do {
     if(!_readRegister(YOUT, _byteRead)) return 0;
+    count++;
   } while (bitRead(_byteRead,6) && count <= 3);
-  if(count >= 5) return 0;
+  if(count >= 4) return 0;
   else return _getAngleXY(_get2sComplement(_byteRead & 0x3F));
 }
 
@@ -97,51 +139,46 @@ float MMA7660FC::getZ(){
   int count = 0;
   do {
     if(!_readRegister(ZOUT, _byteRead)) return 0;
+    count++;
   } while (bitRead(_byteRead,6) && count <= 3);
-  if(count >= 5) return 0;
+  if(count >= 4) return 0;
   else return _getAngleZ(_get2sComplement(_byteRead & 0x3F));
 }
 
 bool MMA7660FC::isFront(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _BaFro = bitRead(_byteRead,1) * bit(1) + bitRead(_byteRead,0) * bit(0);
-  if (_BaFro != B01) return 0;
-  return 1;
+  return (_BaFro = B01);
   }
 
 bool MMA7660FC::isBack(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _BaFro = bitRead(_byteRead,1) * bit(1) + bitRead(_byteRead,0) * bit(0);
-  if (_BaFro != B10) return 0;
-  return 1;
+  return (_BaFro = B10);
 }
 
 bool MMA7660FC::isUp(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
-  if (_PoLa != B110) return 0;
-  return 1;
+  return (_PoLa = B110);
 }
 
 bool MMA7660FC::isDown(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
-  if (_PoLa != B101) return 0;
-  return 1;
+  return (_PoLa = B101);
 }
 
 bool MMA7660FC::isLeft(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
-  if (_PoLa != B001) return 0;
-  return 1;
+  return (_PoLa = B001);
 }
 
 bool MMA7660FC::isRight(){
   if(!_readRegister(TILT, _byteRead) | bitRead(_byteRead, 6)) return 0;
   _PoLa = bitRead(_byteRead,4) * bit(2) + bitRead(_byteRead,3) * bit(1) + bitRead(_byteRead,2) * bit(0);
-  if (_PoLa != B010) return 0;
-  return 1;
+  return (_PoLa = B010);
 }
 
 bool MMA7660FC::enableInterrupts(const uint8_t &interrutp){
@@ -233,6 +270,7 @@ bool MMA7660FC::enableInterrupts(const uint8_t &interrutp){
       break;
 
     }
+
     return 1;
 }
 
@@ -327,30 +365,38 @@ bool MMA7660FC::disableInterrupts(const uint8_t &interrutp){
 }
 
 bool MMA7660FC::enableAutoSleep(){
+  if(!setStandbyMode()) return 0;
   if(!_readRegister(MODE, _modeR)) return 0;
   _modeR |= 0x10;
   if(!_writeRegister(MODE, _modeR)) return 0;
+  setActiveMode();
   return 1;
 }
 
 bool MMA7660FC::disableAutoSleep(){
+  if(!setStandbyMode()) return 0;
   if(!_readRegister(MODE, _modeR)) return 0;
   _modeR &= 0xEF;
   if(!_writeRegister(MODE, _modeR)) return 0;
+  setActiveMode();
   return 1;
 }
 
 bool MMA7660FC::enableAutoWake(){
+  if(!setStandbyMode()) return 0;
   if(!_readRegister(MODE, _modeR)) return 0;
   _modeR |= 0x08;
   if(!_writeRegister(MODE, _modeR)) return 0;
+  setActiveMode();
   return 1;
 }
 
 bool MMA7660FC::disableAutoWake(){
+  if(!setStandbyMode()) return 0;
   if(!_readRegister(MODE, _modeR)) return 0;
   _modeR &= 0xF7;
   if(!_writeRegister(MODE, _modeR)) return 0;
+  setActiveMode();
   return 1;
 }
 
