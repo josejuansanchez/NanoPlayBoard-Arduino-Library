@@ -16,6 +16,7 @@ int last_ldr_value = -1;
 
 #define ID_LDR_READ                 20
 #define ID_LDR_SCALE_TO             21
+#define ID_LDR_STOP                 22
 
 #define ID_RGB_ON                   30
 #define ID_RGB_OFF                  31
@@ -101,6 +102,10 @@ void doMessageAction() {
 
     case ID_LDR_SCALE_TO:
       ldrScaleTo();
+      break;
+
+    case ID_LDR_STOP:
+      message_id = -1;
       break;
 
     case ID_RGB_ON:
