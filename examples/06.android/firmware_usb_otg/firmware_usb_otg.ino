@@ -12,6 +12,7 @@ int last_ldr_value = -1;
 
 #define ID_POTENTIOMETER_READ       10
 #define ID_POTENTIOMETER_SCALE_TO   11
+#define ID_POTENTIOMETER_STOP       12
 
 #define ID_LDR_READ                 20
 #define ID_LDR_SCALE_TO             21
@@ -88,6 +89,10 @@ void doMessageAction() {
 
     case ID_POTENTIOMETER_SCALE_TO:
       potentiometerScaleTo();
+      break;
+
+    case ID_POTENTIOMETER_STOP:
+      message_id = -1;
       break;
 
     case ID_LDR_READ:
