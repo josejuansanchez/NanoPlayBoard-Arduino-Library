@@ -30,6 +30,7 @@ NanoPlayBoard::NanoPlayBoard():
 
   //bluetooth.begin(9600);
   dht.begin();
+  accelerometer.init();
 }
 
 #else
