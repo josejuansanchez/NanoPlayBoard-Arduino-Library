@@ -138,6 +138,12 @@ The library allows you to control the scroll speed that is used to display the t
 board.ledmatrix.printInLandscape(99);
 ```
 
+## Libraries used in this project
+
+* [Arduino library for the DHT series of low cost temperature/humidity sensors][6].
+* [Software I2C Arduino library][7].
+* [NewPing Arduino library][8].
+
 ## Credits
 
 This library has been developed by [Antonio Morales][2] and [José Juan Sánchez][5].
@@ -165,8 +171,11 @@ limitations under the License.
 [3]: http://hacklabalmeria.net
 [4]: https://goo.gl/photos/VKdNkxRcpEW4yBa47
 [5]: http://josejuansanchez.org
-[releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
+[6]: https://github.com/adafruit/DHT-sensor-library
+[7]: https://github.com/felias-fogg/SoftI2CMaster
+[8]: https://bitbucket.org/teckel12/arduino-new-ping/wiki/Home
 
+[releases]: https://github.com/josejuansanchez/NanoPlayBoard/releases
 [upperside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/upperside_v1.png
 [underside]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/underside_v1.png
 [library_manager]: https://github.com/josejuansanchez/NanoPlayBoard-Arduino-Library/blob/master/extras/library_manager.png
