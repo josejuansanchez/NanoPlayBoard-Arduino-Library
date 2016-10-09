@@ -74,7 +74,7 @@ unsigned int NewPing::ping(unsigned int max_cm_distance) {
 }
 
 
-unsigned long NewPing::ping_cm(unsigned int max_cm_distance) {
+unsigned long NewPing::pingCm(unsigned int max_cm_distance) {
 	unsigned long echoTime = NewPing::ping(max_cm_distance); // Calls the ping method and returns with the ping echo distance in uS.
 #if ROUNDING_ENABLED == false
 	return (echoTime / US_ROUNDTRIP_CM);              // Call the ping method and returns the distance in centimeters (no rounding).
@@ -84,7 +84,7 @@ unsigned long NewPing::ping_cm(unsigned int max_cm_distance) {
 }
 
 
-unsigned long NewPing::ping_in(unsigned int max_cm_distance) {
+unsigned long NewPing::pingIn(unsigned int max_cm_distance) {
 	unsigned long echoTime = NewPing::ping(max_cm_distance); // Calls the ping method and returns with the ping echo distance in uS.
 #if ROUNDING_ENABLED == false
 	return (echoTime / US_ROUNDTRIP_IN);              // Call the ping method and returns the distance in inches (no rounding).
@@ -94,7 +94,7 @@ unsigned long NewPing::ping_in(unsigned int max_cm_distance) {
 }
 
 
-unsigned long NewPing::ping_median(uint8_t it, unsigned int max_cm_distance) {
+unsigned long NewPing::pingMedian(uint8_t it, unsigned int max_cm_distance) {
 	unsigned int uS[it], last;
 	uint8_t j, i = 0;
 	unsigned long t;
@@ -200,7 +200,7 @@ void NewPing::set_max_distance(unsigned int max_cm_distance) {
 // Timer interrupt ping methods (won't work with non-AVR, ATmega128 and all ATtiny microcontrollers)
 // ---------------------------------------------------------------------------
 
-void NewPing::ping_timer(void (*userFunc)(void), unsigned int max_cm_distance) {
+void NewPing::pingTimer(void (*userFunc)(void), unsigned int max_cm_distance) {
 	if (max_cm_distance > 0) set_max_distance(max_cm_distance); // Call function to set a new max sensor distance.
 
 	if (!ping_trigger()) return;         // Trigger a ping, if it returns false, return without starting the echo timer.
@@ -208,7 +208,7 @@ void NewPing::ping_timer(void (*userFunc)(void), unsigned int max_cm_distance) {
 }
 
 
-boolean NewPing::check_timer() {
+boolean NewPing::checkTimer() {
 	if (micros() > _max_time) { // Outside the time-out limit.
 		timer_stop();           // Disable timer interrupt
 		return false;           // Cancel ping timer.
@@ -242,7 +242,7 @@ volatile unsigned long _ms_cnt;
 #endif
 
 
-void NewPing::timer_us(unsigned int frequency, void (*userFunc)(void)) {
+void NewPing::timerUs(unsigned int frequency, void (*userFunc)(void)) {
 	intFunc = userFunc; // User's function to call when there's a timer event.
 	timer_setup();      // Configure the timer interrupt.
 
@@ -258,7 +258,7 @@ void NewPing::timer_us(unsigned int frequency, void (*userFunc)(void)) {
 }
 
 
-void NewPing::timer_ms(unsigned long frequency, void (*userFunc)(void)) {
+void NewPing::timerMs(unsigned long frequency, void (*userFunc)(void)) {
 	intFunc = NewPing::timer_ms_cntdwn;  // Timer events are sent here once every ms till user's frequency is reached.
 	intFunc2 = userFunc;                 // User's function to call when user's frequency is reached.
 	_ms_cnt = _ms_cnt_reset = frequency; // Current ms counter and reset value.
@@ -276,7 +276,7 @@ void NewPing::timer_ms(unsigned long frequency, void (*userFunc)(void)) {
 }
 
 
-void NewPing::timer_stop() { // Disable timer interrupt.
+void NewPing::timerStop() { // Disable timer interrupt.
 #if defined (__AVR_ATmega32U4__) // Use Timer4 for ATmega32U4 (Teensy/Leonardo).
 	TIMSK4 = 0;
 #elif defined (__arm__) && defined (TEENSYDUINO) // Timer for Teensy 3.x
@@ -346,7 +346,7 @@ ISR(TIMER2_COMPA_vect) {
 // Conversion methods (rounds result to nearest cm or inch).
 // ---------------------------------------------------------------------------
 
-unsigned int NewPing::convert_cm(unsigned int echoTime) {
+unsigned int NewPing::convertCm(unsigned int echoTime) {
 #if ROUNDING_ENABLED == false
 	return (echoTime / US_ROUNDTRIP_CM);              // Convert uS to centimeters (no rounding).
 #else
@@ -355,7 +355,7 @@ unsigned int NewPing::convert_cm(unsigned int echoTime) {
 }
 
 
-unsigned int NewPing::convert_in(unsigned int echoTime) {
+unsigned int NewPing::convertIn(unsigned int echoTime) {
 #if ROUNDING_ENABLED == false
 	return (echoTime / US_ROUNDTRIP_IN);              // Convert uS to inches (no rounding).
 #else
