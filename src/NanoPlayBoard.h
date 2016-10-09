@@ -19,7 +19,6 @@
 #include "RotaryEncoder.h"
 #include "NewPing.h"
 #include "MMA7660FC.h"
-#include "Adafruit_Sensor.h"
 #include "DHT.h"
 #include <SoftwareSerial.h>
 
