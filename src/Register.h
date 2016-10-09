@@ -18,9 +18,9 @@ class Register
     void write(byte data);
 
   private:
-    uint8_t _data_in;             // Pin attached to the serial pin
-    uint8_t _clock_in;           // Pin attached to the shift clock
-    uint8_t _clock_out;          // Pin atrached to the latch clock
+    uint8_t _data_in;
+    uint8_t _clock_in;
+    uint8_t _clock_out;
     unsigned long _period;
     unsigned int _baudrate;
 };
