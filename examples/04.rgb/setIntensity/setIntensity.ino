@@ -7,8 +7,7 @@ void setup() {
 }
 
 void loop() {
-  int potValue = board.potentiometer.read();
-  int intensity = map(potValue, 0 ,1023, 0 , 100);
+  int intensity = board.potentiometer.scaleTo(0, 99);
   board.rgb.setIntensity(intensity);
   board.ledmatrix.printInLandscape(intensity);
 }

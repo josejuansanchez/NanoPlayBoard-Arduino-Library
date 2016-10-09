@@ -1,27 +1,28 @@
 /*
   Register.h - Library for the Arduino Nano PlayBoard
   Created by Antonio Morales, June, 2016.
-  Released into the public domain.
+  Released under GNU GPL v3.
 */
 
 #ifndef Register_h
 #define Register_h
 
-#include <Arduino.h>
+#include "Arduino.h"
 
 class Register
 {
-    public:
-        Register();
-        void clear();
-        void write(byte data);
+  public:
+    Register();
+    Register(uint8_t data_in, uint8_t clock_in, uint8_t clock_out);
+    void clear();
+    void write(byte data);
 
-    private:
-        uint8_t _Din;    // Pin attached to the serial pin in the shift register
-        uint8_t _ClkIn;  // Pin attached to the shift clock pin in the shift register
-        uint8_t _ClkOut; // Pin atrached to the latch clock pin in the shift register
-        unsigned long _period;
-        unsigned int _baudRate;
+  private:
+    uint8_t _data_in;
+    uint8_t _clock_in;
+    uint8_t _clock_out;
+    unsigned long _period;
+    unsigned int _baudrate;
 };
 
 #endif

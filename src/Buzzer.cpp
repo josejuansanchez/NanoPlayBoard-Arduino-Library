@@ -1,15 +1,17 @@
 /*
   Buzzer.cpp - Library for the Arduino Nano PlayBoard
   Created by José Juan Sánchez, June 19, 2016.
-  Released into the public domain.
+  Released under GNU GPL v3.
 */
 
 #include "Arduino.h"
 #include "Buzzer.h"
 
-Buzzer::Buzzer()
+Buzzer::Buzzer() {}
+
+Buzzer::Buzzer(uint8_t pin)
 {
-  _pin = 3;
+  _pin = pin;
   pinMode(_pin, OUTPUT);
 }
 
