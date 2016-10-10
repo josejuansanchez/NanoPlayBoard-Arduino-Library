@@ -11,10 +11,10 @@
 #include "NanoServo.h"
 
 #define STOP 90
-#define LEFT_FORWARD 0
-#define LEFT_BACKWARD 180
-#define RIGHT_FORWARD 180
-#define RIGHT_BACKWARD 0
+#define MAX_SPEED_LEFT_FORWARD 0
+#define MAX_SPEED_LEFT_BACKWARD 180
+#define MAX_SPEED_RIGHT_FORWARD 180
+#define MAX_SPEED_RIGHT_BACKWARD 0
 
 class NanoServos
 {
@@ -30,10 +30,15 @@ class NanoServos
     void goRight();
     void goLeft();
     void stop();
+    void setSpeed(uint8_t speed);
 
   private:
     NanoServo _servo_right;
     NanoServo _servo_left;
+    uint8_t _left_forward;
+    uint8_t _left_backward;
+    uint8_t _right_forward;
+    uint8_t _right_backward;
 };
 
 #endif
