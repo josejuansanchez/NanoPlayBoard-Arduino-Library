@@ -19,7 +19,7 @@ class NanoServo
 
   private:
     uint8_t _pin;
-    Servo servo;
+    Servo _servo;
 };
 
 #endif
