@@ -15,28 +15,52 @@ NanoServos::NanoServos(uint8_t pin_right, uint8_t pin_left)
   _servo_left = NanoServo(pin_left);
 }
 
-void NanoServos::goForward()
+void NanoServos::goForward(uint32_t milliseconds)
 {
   _servo_right.to(RIGHT_FORWARD);
   _servo_left.to(LEFT_FORWARD);
+  delay(milliseconds);  
+}
+
+void NanoServos::goBackward(uint32_t milliseconds)
+{
+  _servo_right.to(RIGHT_BACKWARD);
+  _servo_left.to(LEFT_BACKWARD);
+  delay(milliseconds);  
+}
+
+void NanoServos::goRight(uint32_t milliseconds)
+{
+  _servo_right.to(STOP);
+  _servo_left.to(LEFT_FORWARD);
+  delay(milliseconds);
+}
+
+void NanoServos::goLeft(uint32_t milliseconds)
+{
+  _servo_right.to(RIGHT_FORWARD);
+  _servo_left.to(STOP);
+  delay(milliseconds);  
+}
+
+void NanoServos::goForward()
+{
+  goForward(0);
 }
 
 void NanoServos::goBackward()
 {
-  _servo_right.to(RIGHT_BACKWARD);
-  _servo_left.to(LEFT_BACKWARD);
+  goBackward(0);
 }
 
 void NanoServos::goRight()
 {
-  _servo_right.to(STOP);
-  _servo_left.to(LEFT_FORWARD);
+  goRight(0);
 }
 
 void NanoServos::goLeft()
 {
-  _servo_right.to(RIGHT_FORWARD);
-  _servo_left.to(STOP);
+  goLeft(0);
 }
 
 void NanoServos::stop()
