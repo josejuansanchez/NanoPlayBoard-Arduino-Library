@@ -13,6 +13,6 @@ void loop() {
     board.ledmatrix.print("?");
   }
   else {
-    board.ledmatrix.printInLandscape(temperature);
+    board.ledmatrix.printNumber(temperature);
   }
 }

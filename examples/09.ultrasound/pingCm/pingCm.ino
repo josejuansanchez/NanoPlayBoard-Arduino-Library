@@ -8,7 +8,7 @@ void setup() {
 
 void loop() {
   int distance = board.ultrasound.pingCm();
-  board.ledmatrix.printInLandscape(distance);
+  board.ledmatrix.printNumber(distance);
   board.bluetooth.println(distance);
   delay(10);
 }

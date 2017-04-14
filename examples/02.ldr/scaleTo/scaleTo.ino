@@ -8,5 +8,5 @@ void setup() {
 
 void loop() {
   int ldrValue = board.ldr.scaleTo(0, 99);
-  board.ledmatrix.printInLandscape(ldrValue);
+  board.ledmatrix.printNumber(ldrValue);
 }
