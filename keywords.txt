@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-NanoPlayBoard		KEYWORD1
+NanoPlayBoard       KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
@@ -19,8 +19,8 @@ playTone            KEYWORD2
 stopTone            KEYWORD2
 clear               KEYWORD2
 print               KEYWORD2
-printInLandscape    KEYWORD2
-setScrollSpeed	    KEYWORD2
+printNumber         KEYWORD2
+setScrollSpeed      KEYWORD2
 setColor            KEYWORD2
 setIntensity        KEYWORD2
 on                  KEYWORD2

@@ -13,7 +13,7 @@ void loop() {
   board.servos.setSpeed(speed);
   
   int distance = board.ultrasound.pingCm();
-  board.ledmatrix.printInLandscape(distance);
+  board.ledmatrix.printNumber(distance);
 
   if (distance < MAX_DISTANCE_FROM_OBSTACLE && distance !=0) {
     board.servos.stop();

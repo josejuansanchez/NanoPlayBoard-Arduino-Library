@@ -103,7 +103,7 @@ void LedMatrix::clear()
   print(' ');
 }
 
-void LedMatrix::printInLandscape(uint8_t number)
+void LedMatrix::printNumber(uint8_t number)
 {
   byte pattern[5];
   for(uint8_t i = 0; i < 5; i++) {

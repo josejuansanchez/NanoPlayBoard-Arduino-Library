@@ -9,5 +9,5 @@ void setup() {
 void loop() {
   int intensity = board.potentiometer.scaleTo(0, 99);
   board.rgb.setIntensity(intensity);
-  board.ledmatrix.printInLandscape(intensity);
+  board.ledmatrix.printNumber(intensity);
 }

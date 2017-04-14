@@ -13,6 +13,6 @@ void loop() {
     board.ledmatrix.print("?");
   }
   else {
-    board.ledmatrix.printInLandscape(humidity);
+    board.ledmatrix.printNumber(humidity);
   }
 }
